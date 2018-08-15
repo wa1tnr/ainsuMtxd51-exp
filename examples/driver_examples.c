@@ -116,6 +116,10 @@ void USART_0_example(void) {
 
     _cr();
     _cr();
+}
+
+#ifdef NOT_DEFFINI
+void trapped(void) {
 
     io_write(io, (uint8_t *)
         "Program is configured for 38400 bps speed.\r\n\r\n",        46);
@@ -145,11 +149,16 @@ void USART_0_example(void) {
  // fg_white();
     fg_yellow(); // color it!
 
-    while(-1) { // endless loop, read one char, write one char (echo)
+//  while(-1) { // endless loop, read one char, write one char (echo)
+
+
         io_read(io,  (uint8_t *)tib, 1); // 1  is length
         buf = (uint8_t *)tib;
         filter();
         io_write(io, (uint8_t *)tib, 1); // 1  is also length
         capture_warm();
-    }
+
+
+//  }
 }
+#endif // #ifdef NOT_DEFFINI
