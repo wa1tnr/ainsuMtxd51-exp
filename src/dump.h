@@ -5,3 +5,4 @@
 
 extern void say_something(void);
 extern uint8_t* srdump(void);
+extern uint8_t*  cdump(void);
