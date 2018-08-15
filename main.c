@@ -1,6 +1,7 @@
 #include <atmel_start.h>
 #include "driver_examples.h"
 #include "pins.h"
+#include "src/dump.h"
 
 void delays(void) { // delay some
     for (volatile int i=1299999; i>0; i--) {
@@ -50,14 +51,26 @@ void blink_awhile(void) {
 
 int main(void)
 {
+    uint8_t* rram = 0;
+    int q = 0;
     /* Initializes MCU, drivers and middleware */
     atmel_start_init();
     SystemInit();
     pins_setup(); // initialize GPIO D13 PA23
 
-    blink_awhile(); // is the clock running?
+    // blink_awhile(); // is the clock running?
 
     USART_0_example();
+
+    rram = srdump();
+
+    q = (int)rram;
+    if (q > 2)  q = 2;
+    if (q < 1)  q = 2;
+    for (volatile int i=-1; i<q; i++) {
+        blink_two();
+        // ldelays();
+    }
     /* Replace with your application code */
 
     while (1) {
