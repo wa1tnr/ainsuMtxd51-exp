@@ -64,6 +64,8 @@ int main(void)
 
     rram = srdump();
 
+    rram = cdump();
+
     q = (int)rram;
     if (q > 2)  q = 2;
     if (q < 1)  q = 2;
