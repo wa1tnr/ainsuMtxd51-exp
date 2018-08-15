@@ -39,6 +39,7 @@ examples \
 hpl/gclk \
 hpl/oscctrl \
 gcc/gcc \
+src \
 hpl/core
 
 # List the object files
@@ -71,6 +72,7 @@ atmel_start.o \
 hal/src/hal_atomic.o \
 pins.o \
 examples/warm.o \
+src/dump.o \
 main.o
 
 OBJS_AS_ARGS +=  \
@@ -102,7 +104,8 @@ OBJS_AS_ARGS +=  \
 "hal/src/hal_atomic.o" \
 "pins.o" \
 "examples/warm.o" \
-"main.o"
+"main.o" \
+"src/dump.o"
 
 # List the dependency files
 DEPS := $(OBJS:%.o=%.d)
@@ -136,6 +139,7 @@ DEPS_AS_ARGS +=  \
 "atmel_start.d" \
 "pins.d" \
 "examples/warm.d" \
+"src/dump.d" \
 "main.d"
 
 OUTPUT_FILE_NAME :=AtmelStart
