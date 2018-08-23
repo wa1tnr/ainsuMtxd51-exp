@@ -110,15 +110,9 @@ void _cr(void) {
     io_write(io, (uint8_t *) "\r\n",         2);
 }
 
-void USART_0_example(void) {
-    usart_sync_get_desc();
-    usart_sync_enbl();
-
-    _cr();
-    _cr();
-}
-
-#ifdef NOT_DEFFINI
+// #undef HAS_TRAPPED_ROUTINE
+// #define HAS_TRAPPED_ROUTINE
+// #ifdef HAS_TRAPPED_ROUTINE
 void trapped(void) {
 
     io_write(io, (uint8_t *)
@@ -149,7 +143,7 @@ void trapped(void) {
  // fg_white();
     fg_yellow(); // color it!
 
-//  while(-1) { // endless loop, read one char, write one char (echo)
+    while(-1) { // endless loop, read one char, write one char (echo)
 
 
         io_read(io,  (uint8_t *)tib, 1); // 1  is length
@@ -159,6 +153,15 @@ void trapped(void) {
         capture_warm();
 
 
-//  }
+    }
 }
-#endif // #ifdef NOT_DEFFINI
+// #endif // #ifdef HAS_TRAPPED_ROUTINE
+
+void USART_0_example(void) {
+    usart_sync_get_desc();
+    usart_sync_enbl();
+
+    _cr();
+    _cr();
+    // trapped();
+}

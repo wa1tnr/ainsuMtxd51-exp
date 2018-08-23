@@ -64,7 +64,18 @@ int main(void)
 
     blink_two(); blink_two();
 
+    io_write(io, (uint8_t *) "feh", 3);
+    io_write(io, (uint8_t *) "feh", 3);
+    io_write(io, (uint8_t *) "feh", 3);
+
+    // srdump();
     rram = srdump();
+
+    io_write(io, (uint8_t *) "foy", 3);
+    io_write(io, (uint8_t *) "foy", 3);
+    io_write(io, (uint8_t *) "foy", 3);
+
+    trapped(); // traps in an endless loop
 
     rram = cdump();
 
@@ -76,6 +87,7 @@ int main(void)
         // ldelays();
     }
     /* Replace with your application code */
+
 
     while (1) {
     }

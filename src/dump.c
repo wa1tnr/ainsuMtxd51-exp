@@ -39,6 +39,7 @@ uint8_t* srdump(void) {
     }
 
 
+    io_write(io, (uint8_t *)"MacArthur - returns.", 20);
     return ram;
     // char *ram;
     // ram = (uint8_t *)7;
