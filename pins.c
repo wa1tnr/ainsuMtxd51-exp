@@ -3,8 +3,8 @@
 #include "pins.h"
 
 void pins_setup(void) {
-    PORT->Group[PORTA].DIRSET.reg  = (uint32_t)(1 << 23); // PA23 //  1 13 pinmode   // D13
-    PORT->Group[PORTA].OUTTGL.reg  = (uint32_t)(1 << 23); // PA23 //    13 pintoggle // D13
-    PORT->Group[PORTA].OUTSET.reg |= (uint32_t)(1 << 23); // PA23 //  1 13 pinwrite  // D13
-    PORT->Group[PORTA].OUTCLR.reg  = (uint32_t)(1 << 23); // PA23 //  0 13 pinwrite  // D13
+    PORT->Group[PORTA].DIRSET.reg  = (uint32_t)(1 << 16); // PA16 //  1 13 pinmode   // D13
+    PORT->Group[PORTA].OUTTGL.reg  = (uint32_t)(1 << 16); // PA16 //    13 pintoggle // D13
+    PORT->Group[PORTA].OUTSET.reg |= (uint32_t)(1 << 16); // PA16 //  1 13 pinwrite  // D13
+    PORT->Group[PORTA].OUTCLR.reg  = (uint32_t)(1 << 16); // PA16 //  0 13 pinwrite  // D13
 }
