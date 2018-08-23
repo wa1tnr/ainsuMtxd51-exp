@@ -1,6 +1,7 @@
 #include "common.h"
 #include "getKey.h"
-#include "driver_examples.h"
+// #include "driver_examples.h"
+#include "serial_io.h"
 
 // costs a bit more than 1kb:
 #include "stdlib.h"
