@@ -6,3 +6,7 @@ mechanisms to setup the clocks, pins and so on.
 
 Some of the atmel start based files may be very wrong.
 
+_INVALID_ appended to a filename indicates it is of
+questionable origin (in the current context).
+
+May be valid; this is not explored here. ;)
