@@ -5,7 +5,8 @@
 //     On branch xKM_converser_aa-br-bb-
 
 #include "common.h"
-#include "driver_examples.h"
+// #include "driver_examples.h"
+#include "serial_io.h"
 
 char ch[0]; // holds an 8-bit keystroke
 
