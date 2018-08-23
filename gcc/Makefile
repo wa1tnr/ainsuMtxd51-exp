@@ -71,11 +71,12 @@ hal/src/hal_sleep.o \
 atmel_start.o \
 hal/src/hal_atomic.o \
 pins.o \
-examples/warm.o \
 src/dump.o \
 src/nyb_stack.o \
 src/getKey.o \
 src/readword.o \
+src/serial_io.o \
+src/warm.o \
 main.o
 
 OBJS_AS_ARGS +=  \
@@ -106,12 +107,13 @@ OBJS_AS_ARGS +=  \
 "atmel_start.o" \
 "hal/src/hal_atomic.o" \
 "pins.o" \
-"examples/warm.o" \
+"src/dump.o" \
 "src/nyb_stack.o" \
 "src/getKey.o" \
 "src/readword.o" \
-"main.o" \
-"src/dump.o"
+"src/serial_io.o" \
+"src/warm.o" \
+"main.o"
 
 # List the dependency files
 DEPS := $(OBJS:%.o=%.d)
@@ -144,11 +146,12 @@ DEPS_AS_ARGS +=  \
 "hpl/oscctrl/hpl_oscctrl.d" \
 "atmel_start.d" \
 "pins.d" \
-"examples/warm.d" \
 "src/dump.d" \
 "src/nyb_stack.d" \
 "src/getKey.d" \
 "src/readword.d" \
+"src/serial_io.d" \
+"src/warm.d" \
 "main.d"
 
 OUTPUT_FILE_NAME :=AtmelStart
