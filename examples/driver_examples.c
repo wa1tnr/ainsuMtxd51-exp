@@ -157,7 +157,7 @@ void USART_0_example_lower(void) {
     io_write(io, (uint8_t *)
         "ainsuMtxd51-exp-cc-    ", 23);
     io_write(io, (uint8_t *)
-        "Thu Aug 23 19:02:39 UTC 2018\r\n\r\n", 32);
+        "Thu Aug 23 19:28:43 UTC 2018\r\n\r\n", 32);
     /*   12345678901234567890123456789012345678901234567890
                  10        20        30        40        50 */
 
