@@ -42,17 +42,8 @@ void bg_blue(void)   { // background blue
 
 void color_reset(void) {  // reset color
     io_write(io, (uint8_t *)"\033\133", 2); // ESC [
-
     io_write(io, (uint8_t *)"\060", 1);     // 0
- // io_write(io, (uint8_t *)"\073", 1);     // ;  semicolon
-
     io_write(io, (uint8_t *)"m", 1);        // for the stanza
-/*
-    io_write(io, (uint8_t *)"\060\056", 2); // 0z  trying for semicolon
-
-    io_write(io, (uint8_t *)"\063\067", 2); // 37 - white fg
-    io_write(io, (uint8_t *)"m", 1);        // for the stanza
-*/
 }
 
 void fg_white(void) {
@@ -152,16 +143,23 @@ void USART_0_example_lower(void) {
     io_write(io, (uint8_t *)
         "Program is configured for 38400 bps speed.\r\n\r\n",        46);
     io_write(io, (uint8_t *)
+        "Target MCU board is Adafruit Metro M4 Express.\r\n\r\n",  50);
+
     //  "Target MCU board is Adafruit Feather M0 Express.\r\n\r\n",  52);
-        "Target MCU board is Adafruit Metro M4 Express.\r\n\r\n",  52);
 
     color_reset();
+
     io_write(io, (uint8_t *)
         "UART pins TX and RX used with CP2104 bridge.\r\n\r\n",      48);
-    /*
-         12345678901234567890123456789012345678901234567890
-                 10        20        30        40        50
-    */
+
+    //  "version: On branch ainsuMtxd51-exp-cc-\r\n", 40);
+    //  "timestamp:  Thu Aug 23 19:02:39 UTC 2018\r\n", 42);
+    io_write(io, (uint8_t *)
+        "ainsuMtxd51-exp-cc-    ", 23);
+    io_write(io, (uint8_t *)
+        "Thu Aug 23 19:02:39 UTC 2018\r\n\r\n", 32);
+    /*   12345678901234567890123456789012345678901234567890
+                 10        20        30        40        50 */
 
     bg_blue();
     fg_white();
