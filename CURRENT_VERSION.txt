@@ -1,1 +1,16 @@
 Thu Aug 23 18:50:08 UTC 2018
+
+Latest bare metal code - ported to Metro M4 Express,
+from recent work done with Feather M0 Express (samd21).
+
+Similarly-named repositories.
+
+Base code is repurposed from earlier samd51 work (to
+get the clocks and USART going, quickly).
+
+This is the very first USART code for Metro M4 Express,
+from wa1tnr (23 August 2018).
+
+Has the nice integer-driven command interpreter
+(211 and 911 menu).
+
