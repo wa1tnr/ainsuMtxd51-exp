@@ -154,7 +154,7 @@ void USART_0_example_lower(void) {
     //  "version: On branch ainsuMtxd51-exp-cc-\r\n", 40);
     //  "timestamp:  Thu Aug 23 19:02:39 UTC 2018\r\n", 42);
     io_write(io, (uint8_t *)
-        "xKM_converser_d51-aa-    ", 25);
+        "xKM_converser_d51-aa-    ", 25); // private branch - see KM_converser_d51 instead
 
     io_write(io, (uint8_t *)
         "Thu Aug 23 21:20:40 UTC 2018\r\n\r\n", 32);
