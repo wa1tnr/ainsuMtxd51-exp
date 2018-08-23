@@ -21,7 +21,9 @@
 // change the last number to any positive integer, for an offset:
 // #define LBOUND 0x20000000+(0x0100 * 0)
 
-#define LBOUND 0x1d10+0x10 // Adafruit
+// #define LBOUND 0x1d10+0x10 // Adafruit
+#define LBOUND 0x1f70+0x100 // Adafruit
+
 
 /* see main.c for how many lines of memory to dump.
    It may be a very large number!
