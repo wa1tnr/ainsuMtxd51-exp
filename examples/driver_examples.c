@@ -1,16 +1,16 @@
 /* Code generated from Atmel Start - overwritten; do make a copy. */
 
-/* warm.c */
+// Thu Aug 23 01:52:11 UTC 2018
 
 /* wa1tnr - August, 2018 LGPL v2.1 */
 
 #include "driver_examples.h"
 #include "driver_init.h"
+#include "common.h"
+#include "getKey.h"
 #include "utils.h"
 #include "warm.h"
-
-/* Terminal Input Buffer for interpreter */
-#define maxtib 16
+#include "readword.h"
 
 struct io_descriptor *io;
 
@@ -75,7 +75,7 @@ void fg_yellow(void) { // foreground yellow
  * Example of using USART_0 to write "Hello World" using the IO abstraction.
  */
 
-char tib[maxtib];
+// char tib[maxtib];
 uint8_t *buf;
 
 void filter(void) {
@@ -106,19 +106,54 @@ void filter(void) {
     }
 }
 
+void _bkbar(void) {
+    io_write(io, (uint8_t *) "|",         1);
+}
+
+void _spc(void) {
+    io_write(io, (uint8_t *) " ",         1);
+}
+
 void _cr(void) {
     io_write(io, (uint8_t *) "\r\n",         2);
 }
 
-// #undef HAS_TRAPPED_ROUTINE
-// #define HAS_TRAPPED_ROUTINE
-// #ifdef HAS_TRAPPED_ROUTINE
-void trapped(void) {
+void USART_0_example_upper(void) {
+    usart_sync_get_desc();
+    usart_sync_enbl();
+    _cr();
+}
+
+
+void dispatcher_simple_int(void) {
+    // int rval = number();
+    if (number() == 911) { // help
+        io_write(io, (uint8_t *) "\r\n\r\n     911 - help\r\n",  21);
+        io_write(io, (uint8_t *) "     211 - reboot (warm)\r\n",  26);
+    }
+    if (number() == 211) _warm();
+}
+
+
+void USART_0_example_lower(void) {
+    _cr();
+
+#undef HAS_HELLO_INTERPRETER
+#define HAS_HELLO_INTERPRETER
+#ifndef HAS_HELLO_INTERPRETER
+
+    io_write(io, (uint8_t *) "USART_0_example_upper() .. completes.\r\n", 39); // is alive
+                           // 123456789012345678901234567890123456789012345
+                           //         10        20        30
+#endif // #ifndef HAS_HELLO_INTERPRETER
+
+#ifdef HAS_HELLO_INTERPRETER
 
     io_write(io, (uint8_t *)
         "Program is configured for 38400 bps speed.\r\n\r\n",        46);
     io_write(io, (uint8_t *)
-        "Target MCU board is Adafruit Feather M4 Express.\r\n\r\n",  52);
+    //  "Target MCU board is Adafruit Feather M0 Express.\r\n\r\n",  52);
+        "Target MCU board is Adafruit Metro M4 Express.\r\n\r\n",  52);
 
     color_reset();
     io_write(io, (uint8_t *)
@@ -135,33 +170,25 @@ void trapped(void) {
     color_reset();
 
     bg_black();
-    // io_write(io, (uint8_t *)  "\r\n",  2);
     io_write(io, (uint8_t *)"    type something: ",  20);
     bg_black();
 
-
- // fg_white();
     fg_yellow(); // color it!
 
     while(-1) { // endless loop, read one char, write one char (echo)
-
-
-        io_read(io,  (uint8_t *)tib, 1); // 1  is length
+        // io_read(io,  (uint8_t *)tib, 1); // 1  is length
+        // getKey();
+        readword();
+        io_write(io, (uint8_t *)"  ~readword~  ", 14);
+        if (isNumber()) {
+            io_write(io, (uint8_t *)"  ~isNumber~  ", 14);
+            dispatcher_simple_int();
+        }
+        tib[0] = ch[0];
         buf = (uint8_t *)tib;
         filter();
         io_write(io, (uint8_t *)tib, 1); // 1  is also length
         capture_warm();
-
-
     }
-}
-// #endif // #ifdef HAS_TRAPPED_ROUTINE
-
-void USART_0_example(void) {
-    usart_sync_get_desc();
-    usart_sync_enbl();
-
-    _cr();
-    _cr();
-    // trapped();
+#endif // #ifdef HAS_HELLO_INTERPRETER
 }
