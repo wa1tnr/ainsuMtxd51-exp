@@ -11,9 +11,9 @@ void delays(void) { // delay some
 
 void blink_two(void) {
     // clear first
-    PORT->Group[PORTA].OUTCLR.reg  = (uint32_t)(1 << 23); // PA23 //  0 13 pinwrite  // D13
+    PORT->Group[PORTA].OUTCLR.reg  = (uint32_t)(1 << 16); // PA16 //  0 13 pinwrite  // D13
     for (int blinks=2; blinks >0; blinks--) {
-        PORT->Group[PORTA].OUTTGL.reg  = (uint32_t)(1 << 23); // PA23 //    13 pintoggle // D13
+        PORT->Group[PORTA].OUTTGL.reg  = (uint32_t)(1 << 16); // PA16 //    13 pintoggle // D13
         delays();
     }
 }
@@ -56,11 +56,13 @@ int main(void)
     /* Initializes MCU, drivers and middleware */
     atmel_start_init();
     SystemInit();
-    pins_setup(); // initialize GPIO D13 PA23
+    pins_setup(); // initialize GPIO D13 PA16
 
     // blink_awhile(); // is the clock running?
 
     USART_0_example();
+
+    blink_two(); blink_two();
 
     rram = srdump();
 
