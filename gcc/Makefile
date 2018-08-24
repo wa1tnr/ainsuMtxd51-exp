@@ -81,6 +81,7 @@ src/readword.o \
 src/serial_io.o \
 src/warm.o \
 src/clock_gen_OE.o \
+src/stack_ops.o \
 main.o
 
 OBJS_AS_ARGS +=  \
@@ -118,6 +119,7 @@ OBJS_AS_ARGS +=  \
 "src/serial_io.o" \
 "src/warm.o" \
 "src/clock_gen_OE.o" \
+"src/stack_ops.o" \
 "main.o"
 
 # List the dependency files
@@ -158,6 +160,7 @@ DEPS_AS_ARGS +=  \
 "src/serial_io.d" \
 "src/warm.d" \
 "src/clock_gen_OE.d" \
+"src/stack_ops.d" \
 "main.d"
 
 OUTPUT_FILE_NAME :=AtmelStart
