@@ -162,7 +162,7 @@ void USART_0_example_lower(void) {
 */
 
     io_write(io, (uint8_t *)
-        "Thu Aug 24 19:55:49 UTC 2018\r\n\r\n",                      32);
+        "Fri Aug 24 20:46:58 UTC 2018\r\n\r\n",                      32);
     /*   12345678901234567890123456789012345678901234567890
                  10        20        30        40        50 */
 
