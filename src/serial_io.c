@@ -142,7 +142,7 @@ void USART_0_example_lower(void) {
     io_write(io, (uint8_t *)
         "Program is configured for 38400 bps speed.\r\n\r\n",        46);
     io_write(io, (uint8_t *)
-        "Target MCU board is Adafruit Metro M4 Express.\r\n\r\n",  50);
+        "Target MCU board is Adafruit Metro M4 Express.\r\n\r\n",    50);
 
     //  "Target MCU board is Adafruit Feather M0 Express.\r\n\r\n",  52);
 
@@ -151,13 +151,18 @@ void USART_0_example_lower(void) {
     io_write(io, (uint8_t *)
         "UART pins TX and RX used with CP2104 bridge.\r\n\r\n",      48);
 
-    //  "version: On branch ainsuMtxd51-exp-cc-\r\n", 40);
-    //  "timestamp:  Thu Aug 23 19:02:39 UTC 2018\r\n", 42);
+    //  "version: On branch ainsuMtxd51-exp-cc-\r\n",                40);
+    //  "timestamp:  Thu Aug 23 19:02:39 UTC 2018\r\n",              42);
     io_write(io, (uint8_t *)
         "xKM_converser_d51-aa-    ", 25); // private branch - see KM_converser_d51 instead
 
+/*
     io_write(io, (uint8_t *)
-        "Thu Aug 23 21:20:40 UTC 2018\r\n\r\n", 32);
+        "SMUDGE BIT SET   ", 17); // SMUDGE (means nothing other than 'this is different'
+*/
+
+    io_write(io, (uint8_t *)
+        "Thu Aug 24 19:55:49 UTC 2018\r\n\r\n",                      32);
     /*   12345678901234567890123456789012345678901234567890
                  10        20        30        40        50 */
 
