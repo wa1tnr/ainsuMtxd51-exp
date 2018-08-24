@@ -85,8 +85,8 @@ int COUNTER = 0;
 uint8_t* cdump(void) {
     char buffer[5] = "";
     char *ram;
-    int p = LBOUND+COUNTER ;
-    ram = (char*)p;
+    int adptr = LBOUND+COUNTER ;
+    ram = (char*)adptr;
 
     io_write(io, (uint8_t *)"\015\012", 2); // CRLF
  // io_write(io, (uint8_t *)"  ", 2);
@@ -146,7 +146,7 @@ uint8_t* cdump(void) {
         if (i == 7) _spc();
     } // for
 
-    ram = (char*)p;
+    ram = (char*)adptr;
 
 
     io_write(io, (uint8_t *)"   ", 3); // white space column separating hex from ASCII
@@ -171,5 +171,5 @@ uint8_t* cdump(void) {
 
     // forth: push(p + 16);
     COUNTER = COUNTER + 16;
-    return (uint8_t *)p;
+    return (uint8_t *)adptr;
 }
