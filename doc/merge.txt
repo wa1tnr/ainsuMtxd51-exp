@@ -1,0 +1,18 @@
+Switched to branch 'KM_converser_d51'
+Your branch is ahead of 'origin/KM_converser_d51' by 1 commit.
+  (use "git push" to publish your local commits)
+
+  $ git merge xKM_converser_d51-aa- 
+Updating 6e18c3a..cda1912
+Fast-forward
+ doc/clock_freq_measure.txt | 38 ++++++++++++++++++++++++++++++++++++++
+ gcc/Makefile               | 12 +++++++++---
+ main.c                     | 36 ++----------------------------------
+ src/clock_gen_OE.c         | 60 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ src/clock_gen_OE.h         |  7 +++++++
+ src/serial_io.c            | 15 ++++++++++-----
+ 6 files changed, 126 insertions(+), 42 deletions(-)
+ create mode 100644 doc/clock_freq_measure.txt
+ create mode 100644 src/clock_gen_OE.c
+ create mode 100644 src/clock_gen_OE.h
+  $ git push origin 
