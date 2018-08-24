@@ -7,6 +7,7 @@
 #include "pins.h"
 #include "dump.h"
 #include "nyb_stack.h"
+#include "clock_gen_OE.h"
 
 void delays(void) { // delay some
     for (volatile int i=(3*21040); i>0; i--) {
@@ -49,40 +50,7 @@ int main(void)
     // 8 MHz CPU
     pins_setup(); // initialize GPIO D13 PA17
 
-    // Summary: 8 MHz seen on D2 Metro M0 Express.  This is the only
-    // pin found that will perform this function, on any of these:
-
-    // Gemma M0  Trinket M0  Feather M0 Express Metro M0 Express
-
-    // Unchecked were ItsyBitsyM0 Adalogger M0 Feather M0 Basic.
-
-    // Possible pins for SAMD21, for this experiment, are:
-
-    // PA14  PA27  PA28  PA30
-    // PB14  PB22
-
-    // Pin D4 (which is also PA14) on SAMD51 (Feather M4 Express)
-    // is known to work, also.
-
-    // PA14 (board D2) Metro M0 Express, only // ainsuforth wa1tnr TODO
-
-    // configure PA14 (board D2) as GCLK_IO[0] output of main clock generator,
-    // to confirm 48 MHz operation
-    // set pin as output
-
-    // cannot do this on other target boards; needs Metro M0 Express:
-#ifdef METRO_M0_EXPRESS
-    PORT->Group[PORTA].DIRSET.reg  = (uint32_t)(1 << 14); // PA14 //  1  2 pinmode   //  D2
-
-    // enable the peripheral mux for this pin
-    PORT->Group[PORTA].PINCFG[14].bit.PMUXEN = 1;
-
-    PORT->Group[PORTA].PMUX[(14>>1)].bit.PMUXE
-        = MUX_PA14H_GCLK_IO0; // select the GCLK_IO0 peripheral function
-
-    // do this in ./config/hpl_gclk_config.h:
-    // GCLK->GENCTRL[0].bit.OE = 1; // enable output from clock generator 0
-#endif // #ifdef METRO_M0_EXPRESS
+    clock_gen_oe(); // clock generator 0 output enable
 
     // blink_awhile(); // is the clock running?
 
