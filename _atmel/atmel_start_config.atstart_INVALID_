@@ -629,7 +629,7 @@ drivers:
       gclk_arch_gen_9_oe: false
       gclk_arch_gen_9_oov: false
       gclk_arch_gen_9_runstdby: false
-      gclk_gen_0_div: 1
+      gclk_gen_0_div: 3
       gclk_gen_0_div_sel: false
       gclk_gen_0_oscillator: Digital Frequency Locked Loop (DFLL48M)
       gclk_gen_10_div: 1
@@ -739,7 +739,7 @@ drivers:
       dfll_arch_stable: false
       dfll_arch_usbcrm: false
       dfll_arch_waitlock: true
-      dfll_mode: Closed Loop Mode
+      dfll_mode: Open Loop Mode
       dfll_mul: 0
       dfll_ref_clock: Generic clock generator 3
       enable_dfll: true
