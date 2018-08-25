@@ -11,11 +11,6 @@
 #include "warm.h" // io descriptor
 #include "common.h"
 
-/* Terminal Input Buffer for interpreter */
-// #define maxtib 16
-
-// struct io_descriptor *io;
-
 int state_warm = 0;
 
 void _warm(void) { // reboot the machine
