@@ -23,10 +23,6 @@ void prelude_to_cleo(void) {
     }
 }
 
-void call_me_now_ms_cleo(void) { // call me now for your free reading
-    prelude_to_cleo(); // test basic io_write() functionality
-}
-
 /* reverse:  reverse string s in place */
 static void reverse(char s[]) {
     int i, j ;
@@ -53,6 +49,19 @@ extern void itoa(int n, char s[]) {
     }
     s[i] = '\0';
     reverse(s);
+}
+
+void call_me_now_ms_cleo(void) { // call me now for your free reading
+    prelude_to_cleo(); // test basic io_write() functionality
+
+    pr_strn[0] = (uint32_t) "\0";
+    input_intgr = 5280; // feet in a mile
+
+    // extern void itoa( int n, char s[] )
+    itoa (input_intgr, pr_strn);
+
+    // pr_strn is populated now.
+    io_write(io, (uint8_t *)pr_strn, 4);
 }
 
 /*
