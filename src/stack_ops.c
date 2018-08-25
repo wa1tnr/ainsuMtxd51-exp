@@ -36,3 +36,8 @@ int pop(void) {
   return n;
 }
 
+/* destructively display top of stack, decimal */
+void dot(void) {
+    // Serial.print(pop());
+    // Serial.print(" ");
+}
