@@ -8,6 +8,7 @@
 // #include "driver_examples.h"
 #include "serial_io.h"
 #include "common.h"
+#include "stack_ops.h"
 #include <string.h>
 
 // lower boundary of the memory to examine
@@ -22,7 +23,9 @@
 // #define LBOUND 0x20000000+(0x0100 * 0)
 
 // #define LBOUND 0x1d10+0x10 // Adafruit
-#define LBOUND 0x1f70+0x100 // Adafruit
+
+// #define LBOUND 0x1f70+0x100 // Adafruit
+#define LBOUND 0x1e70+0x100 // add 0x100 through the stack mechanism, later
 
 
 /* see main.c for how many lines of memory to dump.
@@ -86,6 +89,8 @@ uint8_t* cdump(void) {
     char buffer[5] = "";
     char *ram;
     int adptr = LBOUND+COUNTER ;
+    push(0x0); // can put in any value, it's an offset to see a specific segment of SRAM
+    adptr = adptr + pop();
     ram = (char*)adptr;
 
     io_write(io, (uint8_t *)"\015\012", 2); // CRLF
