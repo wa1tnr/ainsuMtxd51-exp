@@ -8,7 +8,9 @@
 #include "dump.h"
 #include "nyb_stack.h"
 #include "clock_gen_OE.h"
+#include "common.h"
 #include "itoa.h"
+#include "stack_ops.h"
 
 void delays(void) { // delay some
     for (volatile int i=(3*21040); i>0; i--) {
@@ -92,7 +94,10 @@ int main(void)
 
     _cr(); // examples/driver_examples.c
 
-    call_me_now_ms_cleo();
+    // three nice tests in a row:
+    //     call_me_now_ms_cleo();
+    //     push(52801776);
+    //     dot(); // test of print from TOS
 
     // New location for the demo:
     USART_0_example_lower();
