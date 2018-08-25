@@ -10,9 +10,19 @@
   Copyright (c) 2014 Arduino LLC.  All right reserved.
 */
 
+char pr_strn[63]; // print string - weak naming.  review. TODO wa1tnr
+int input_intgr = 0; // input integer - also a weak name. ;)  TODO wa1tnr
 
-// program code here
+void prelude_to_cleo(void) {
+}
 
+void call_me_now_ms_cleo(void) { // call me now for your free reading
+    prelude_to_cleo(); // test basic io_write() functionality
+}
+
+/* itoa:  convert n to characters in s */
+extern void itoa( int n, char s[] ) {
+}
 
 /*
   .arduino15/packages/adafruit/hardware/samd/1.2.1/cores/arduino/itoa.c
