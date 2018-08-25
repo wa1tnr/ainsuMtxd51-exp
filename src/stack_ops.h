@@ -3,7 +3,7 @@
 // const int STKSIZE = 8;
 // const int STKMASK = 7;
 extern int stack[];
-extern int p = 0;
+extern int p; // = 0;
 
 /* TOS is Top Of Stack */
 // #define TOS stack[p]
