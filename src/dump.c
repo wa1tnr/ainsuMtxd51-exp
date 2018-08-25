@@ -89,7 +89,7 @@ uint8_t* cdump(void) {
     char buffer[5] = "";
     char *ram;
     int adptr = LBOUND+COUNTER ;
-    push(0x0); // can put in any value, it's an offset to see a specific segment of SRAM
+    push(0x100); // can put in any value, it's an offset to see a specific segment of SRAM
     adptr = adptr + pop();
     ram = (char*)adptr;
 

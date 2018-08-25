@@ -1,3 +1,34 @@
+To https://github.com/wa1tnr/ainsuMtxd51-exp.git
+   d13fd21..235f7e4  KM_converser_d51 -> KM_converser_d51
+ git $ git checkout master
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+ git $ git merge KM_converser_d51
+Updating 34325d1..235f7e4
+Fast-forward
+ doc/PARKING.txt   | 46 ++++++++++++++++++++++++++++++++++++++++++
+ doc/PARKING_src.c | 69 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ doc/merge.txt     | 38 ++++++++++++++++++++---------------
+ gcc/Makefile      | 17 ++++++++++++++--
+ main.c            |  3 +++
+ src/dump.c        | 15 +++++++++-----
+ src/itoa.c        | 85 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ src/itoa.h        |  3 +++
+ src/serial_io.c   |  6 ++++--
+ src/stack_ops.c   | 43 +++++++++++++++++++++++++++++++++++++++
+ src/stack_ops.h   | 13 ++++++++++++
+ 11 files changed, 313 insertions(+), 25 deletions(-)
+ create mode 100644 doc/PARKING.txt
+ create mode 100644 doc/PARKING_src.c
+ create mode 100644 src/itoa.c
+ create mode 100644 src/itoa.h
+ create mode 100644 src/stack_ops.c
+ create mode 100644 src/stack_ops.h
+ $
+Sat Aug 25 21:14:37 UTC 2018
+
+previously:
+
  $ git checkout KM_converser_d51 
 Switched to branch 'KM_converser_d51'
 Your branch is up-to-date with 'origin/KM_converser_d51'.
