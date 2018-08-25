@@ -10,6 +10,8 @@
 #include "utils.h"
 #include "warm.h"
 #include "readword.h"
+#include "stack_ops.h"
+// #include "itoa.h"
 
 struct io_descriptor *io;
 
@@ -65,7 +67,6 @@ void fg_yellow(void) { // foreground yellow
  * Example of using USART_0 to write "Hello World" using the IO abstraction.
  */
 
-// char tib[maxtib];
 uint8_t *buf;
 
 void filter(void) {
@@ -114,7 +115,6 @@ void USART_0_example_upper(void) {
     _cr();
 }
 
-
 void dispatcher_simple_int(void) {
     // int rval = number();
     if (number() == 911) { // help
@@ -123,7 +123,6 @@ void dispatcher_simple_int(void) {
     }
     if (number() == 211) _warm();
 }
-
 
 void USART_0_example_lower(void) {
     _cr();
@@ -154,10 +153,10 @@ void USART_0_example_lower(void) {
     //  "version: On branch ainsuMtxd51-exp-cc-\r\n",                40);
     //  "timestamp:  Thu Aug 23 19:02:39 UTC 2018\r\n",              42);
     io_write(io, (uint8_t *)
-     // "xKM_converser_d51-cc-    ", 25); // private branch - see KM_converser_d51 instead
+        "xKM_converser_d51-cc-    ", 25); // private branch - see KM_converser_d51 instead
 
      // prep for merge into master, 25 Aug 20:58 UTC:
-        "On branch master         ", 25); // reflect that this is really branch master
+     // "On branch master         ", 25); // reflect that this is really branch master
 
 /*
     io_write(io, (uint8_t *)
@@ -165,7 +164,7 @@ void USART_0_example_lower(void) {
 */
 
     io_write(io, (uint8_t *)
-        "Sat Aug 25 20:55:50 UTC 2018\r\n\r\n",                      32);
+        "Sat Aug 25 22:40:38 UTC 2018\r\n\r\n",                      32);
     /*   12345678901234567890123456789012345678901234567890
                  10        20        30        40        50 */
 
@@ -182,13 +181,13 @@ void USART_0_example_lower(void) {
     fg_yellow(); // color it!
 
     while(-1) { // endless loop, read one char, write one char (echo)
-        // io_read(io,  (uint8_t *)tib, 1); // 1  is length
-        // getKey();
         readword();
-        io_write(io, (uint8_t *)"  ~readword~  ", 14);
+        io_write(io, (uint8_t *)" ~readword~ ", 12);
         if (isNumber()) {
-            io_write(io, (uint8_t *)"  ~isNumber~  ", 14);
-            dispatcher_simple_int();
+            // io_write(io, (uint8_t *)"  ~isNumber~  ", 14);
+            push(number());
+            dot(); // the forth word 'dot' ( a '.' by itself on the command line)
+            dispatcher_simple_int(); // command processor
         }
         tib[0] = ch[0];
         buf = (uint8_t *)tib;
