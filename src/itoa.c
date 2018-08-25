@@ -11,10 +11,13 @@
 */
 
 #include <atmel_start.h>
+#include "common.h"
 #include "serial_io.h"
 #include <string.h>
 
-char pr_strn[63]; // print string - weak naming.  review. TODO wa1tnr
+char pr_strn[stackbuflen];
+
+// print string - weak naming.  review. TODO wa1tnr
 int input_intgr = 0; // input integer - also a weak name. ;)  TODO wa1tnr
 
 void prelude_to_cleo(void) {
