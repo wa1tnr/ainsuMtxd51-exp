@@ -1,8 +1,8 @@
+// Sat Aug 25 23:12:12 UTC 2018
 // Thu Aug 23 01:52:11 UTC 2018
 
 /* wa1tnr - August, 2018 LGPL v2.1 */
 
-// #include "driver_examples.h"
 #include "serial_io.h"
 #include "driver_init.h"
 #include "common.h"
@@ -11,7 +11,6 @@
 #include "warm.h"
 #include "readword.h"
 #include "stack_ops.h"
-// #include "itoa.h"
 
 struct io_descriptor *io;
 
@@ -164,7 +163,7 @@ void USART_0_example_lower(void) {
 */
 
     io_write(io, (uint8_t *)
-        "Sat Aug 25 22:40:38 UTC 2018\r\n\r\n",                      32);
+        "Sat Aug 25 23:12:12 UTC 2018\r\n\r\n",                      32);
     /*   12345678901234567890123456789012345678901234567890
                  10        20        30        40        50 */
 
