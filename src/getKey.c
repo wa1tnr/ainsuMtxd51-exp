@@ -10,8 +10,6 @@
 
 char ch[0]; // holds an 8-bit keystroke
 
-// maxtib defined in common.h
-
 /* Terminal Input Buffer for interpreter */
 char tib[maxtib];
 
