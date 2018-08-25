@@ -8,6 +8,7 @@
 #include "dump.h"
 #include "nyb_stack.h"
 #include "clock_gen_OE.h"
+#include "itoa.h"
 
 void delays(void) { // delay some
     for (volatile int i=(3*21040); i>0; i--) {
@@ -90,6 +91,8 @@ int main(void)
     // rram = cdump();    // dump.c
 
     _cr(); // examples/driver_examples.c
+
+    call_me_now_ms_cleo();
 
     // New location for the demo:
     USART_0_example_lower();
