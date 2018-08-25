@@ -35,7 +35,7 @@ static void reverse(char s[]) {
 }
 
 /* itoa:  convert n to characters in s */
-extern void itoa(int n, char s[]) {
+void itoa(int n, char s[]) {
     int i, sign ;
     if ( (sign = n) < 0 ) { // record sign
         n = -n; // make n positive
