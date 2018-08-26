@@ -8,8 +8,7 @@
 #include "common.h"
 #include "getKey.h"
 #include "serial_io.h"
-
-// #include "stack_ops.h"
+#include "stack_ops.h"
 
 /* NAMED creates a string in flash */
 #define NAMED(x, y) const char x[]=y
@@ -36,6 +35,12 @@ void swap() {
     io_write(io, (uint8_t *)" ~swap~", 7);
 }
 
+/* display whole stack, decimal */
+NAMED(_dotS, ".s");
+void dotS() {
+    for (int i = 0; i < STKSIZE; i++) dot();
+}
+
 NAMED(_nopp, " ");  // swapped _name with _nop
 void nopp() { }
 
@@ -46,6 +51,7 @@ const entry dictionary[] = { // populated just enough to test basics
     { _dott,      dott   },
     { _drop,      drop   },
     { _swap,      swap   },
+    { _dotS,      dotS   },
     { _nopp,      nopp   },
 };
 
