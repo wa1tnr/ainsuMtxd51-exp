@@ -7,9 +7,10 @@ extern "C" {
 
 extern struct io_descriptor *io;
 
+void _ok(void); // line 73-ish
 void _bkbar(void); // broken bar
 void _spc(void);
-void _cr(void);
+void _cr(void); // line 113
 void USART_0_example_upper(void);
 void USART_0_example_lower(void);
 
