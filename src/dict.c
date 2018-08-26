@@ -23,10 +23,7 @@ void dott(void) { // earlier dot() word bypassed temporarily
     // io_write(io, (uint8_t *)" ~dot~", 7);
 }
 
-NAMED(_nopp, "nop");
-void nopp() { }
-
-NAMED(_nop, " ");
+NAMED(_nop, "nop"); // swapped _name with _nopp
 void nop() { }
 
 NAMED(_swap, "swap");
@@ -34,13 +31,17 @@ void swap() {
     // io_write(io, (uint8_t *)" ~swap~", 7);
 }
 
+// NAMED(_nopp, " ");  // swapped _name with _nop
+// void nopp() { }
+
 /* table of names and function addresses in flash */
 // extern const entry dictionary[];
 const entry dictionary[] = { // populated just enough to test basics
     { _nop,       nop    },
-    { _swap,      swap   },
     { _dott,      dott   },
-    { _nopp,      nopp   },
+//  { _drop,      drop   },
+    { _swap,      swap   },
+//  { _nopp,      nopp   },
 };
 
 /* Number of words in the dictionary */
