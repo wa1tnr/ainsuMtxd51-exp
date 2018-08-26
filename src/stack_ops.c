@@ -15,6 +15,7 @@
 #include "itoa.h"
 #include "serial_io.h"
 #include <string.h>
+#include "stack_ops.h"
 
 // const int STKSIZE = 8;
 #define STKSIZE 8
