@@ -84,6 +84,7 @@ src/clock_gen_OE.o \
 src/stack_ops.o \
 src/itoa.o \
 src/dict.o \
+src/runword.o \
 main.o
 
 OBJS_AS_ARGS +=  \
@@ -124,6 +125,7 @@ OBJS_AS_ARGS +=  \
 "src/stack_ops.o" \
 "src/itoa.o" \
 "src/dict.o" \
+"src/runword.o" \
 "main.o"
 
 # List the dependency files
@@ -167,6 +169,7 @@ DEPS_AS_ARGS +=  \
 "src/stack_ops.d" \
 "src/itoa.d" \
 "src/dict.d" \
+"src/runword.d" \
 "main.d"
 
 OUTPUT_FILE_NAME :=AtmelStart
