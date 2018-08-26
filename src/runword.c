@@ -6,6 +6,7 @@
 #include "dict.h"
 #include "serial_io.h"
 #include "stack_ops.h"
+#include "readword.h"
 
 void runword(void) {
     int place = locate();
@@ -14,9 +15,15 @@ void runword(void) {
     io_write(io, (uint8_t *)    " ~runword dot~ ", 15);
                              /*  1234567890123456789012345678901234567890 */
     dot();
-    if ((place != 0) & (place < (entries - 1))) {
-        io_write(io, (uint8_t *)" ~runword place~ ", 17);
+    // 5 #define LOCATE_BOUNDS_ERR -11
+    if ((place != LOCATE_BOUNDS_ERR) & (place < (entries - 1))) { // if ((place != 0) & ..
+        io_write(io, (uint8_t *)" ~runword place fgh~ ", 20);
         return;
     }
-    return;
+
+    if (isNumber()) {
+        io_write(io, (uint8_t *)" ~runword isNumber 773~ ", 24);
+        return;
+    }
+    // Serial.println("?");
 }
