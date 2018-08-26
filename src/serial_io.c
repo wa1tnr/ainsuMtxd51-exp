@@ -152,8 +152,8 @@ void USART_0_example_lower(void) {
     //  "version: On branch ainsuMtxd51-exp-cc-\r\n",                40);
     //  "timestamp:  Thu Aug 23 19:02:39 UTC 2018\r\n",              42);
     io_write(io, (uint8_t *)
-        "KM_converser_d51         ", 25); // private branch - see KM_converser_d51 instead
-     // "xKM_converser_d51-cc-    ", 25); // private branch - see KM_converser_d51 instead
+        "xKM_converser_d51-cc-    ", 25); // private branch - see KM_converser_d51 instead
+     // "KM_converser_d51         ", 25); // private branch - see KM_converser_d51 instead
 
      // prep for merge into master, 25 Aug 20:58 UTC:
      // "On branch master         ", 25); // reflect that this is really branch master
@@ -164,7 +164,7 @@ void USART_0_example_lower(void) {
 */
 
     io_write(io, (uint8_t *)
-        "Sat Aug 25 23:12:12 UTC 2018\r\n\r\n",                      32);
+        "Sat Aug 25 23:40:40 UTC 2018\r\n\r\n",                      32);
     /*   12345678901234567890123456789012345678901234567890
                  10        20        30        40        50 */
 
