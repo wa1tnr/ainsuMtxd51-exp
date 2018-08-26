@@ -2,9 +2,14 @@
 
 /* dict.h */
 
+extern int locate();
+extern const int entries; // = sizeof dictionary / sizeof dictionary[0];
+
 typedef void (*func)(void);           // signature of functions in dictionary
 
 typedef struct {
     const char*    name;              // Pointer the Word Name in flash
     const func     function;          // Pointer to function
 } entry;
+
+extern const entry dictionary[];
