@@ -33,7 +33,9 @@ void runword(void) {
 
     if (isNumber()) {
         push(number()); // pivotal change
-        io_write(io, (uint8_t *)" ~runword isNumber 773~ ", 24);
+        if ( DEBUG_FORTH_DICT_PRIMITIVES ) {
+            io_write(io, (uint8_t *)" ~runword isNumber 773~ ", 24);
+        }
         _ok();
         return;
     }
