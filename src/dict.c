@@ -7,9 +7,9 @@
 #include <string.h>
 #include "common.h"
 #include "getKey.h"
+#include "serial_io.h"
 
 // #include "stack_ops.h"
-// #include "serial_io.h"
 
 /* NAMED creates a string in flash */
 #define NAMED(x, y) const char x[]=y
@@ -20,28 +20,33 @@ char namebuf[maxtib];
 /* destructively display top of stack, decimal */
 NAMED(_dott, ".");
 void dott(void) { // earlier dot() word bypassed temporarily
-    // io_write(io, (uint8_t *)" ~dot~", 7);
+    io_write(io, (uint8_t *)" ~dot~", 7);
 }
 
 NAMED(_nop, "nop"); // swapped _name with _nopp
 void nop() { }
 
-NAMED(_swap, "swap");
-void swap() {
-    // io_write(io, (uint8_t *)" ~swap~", 7);
+NAMED(_drop, "drop");
+void drop() {
+    io_write(io, (uint8_t *)" ~drop~", 7);
 }
 
-// NAMED(_nopp, " ");  // swapped _name with _nop
-// void nopp() { }
+NAMED(_swap, "swap");
+void swap() {
+    io_write(io, (uint8_t *)" ~swap~", 7);
+}
+
+NAMED(_nopp, " ");  // swapped _name with _nop
+void nopp() { }
 
 /* table of names and function addresses in flash */
 // extern const entry dictionary[];
 const entry dictionary[] = { // populated just enough to test basics
     { _nop,       nop    },
     { _dott,      dott   },
-//  { _drop,      drop   },
+    { _drop,      drop   },
     { _swap,      swap   },
-//  { _nopp,      nopp   },
+    { _nopp,      nopp   },
 };
 
 /* Number of words in the dictionary */
