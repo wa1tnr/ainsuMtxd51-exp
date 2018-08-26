@@ -10,6 +10,7 @@
 #include "utils.h"
 #include "warm.h"
 #include "readword.h"
+#include "runword.h"
 #include "stack_ops.h"
 
 struct io_descriptor *io;
@@ -182,6 +183,7 @@ void USART_0_example_lower(void) {
 
     while(-1) { // endless loop, read one char, write one char (echo)
         readword();
+        runword();
         io_write(io, (uint8_t *)" ~readword~ ", 12);
         if (isNumber()) {
             // io_write(io, (uint8_t *)"  ~isNumber~  ", 14);
