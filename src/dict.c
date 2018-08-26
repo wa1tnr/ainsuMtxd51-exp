@@ -4,10 +4,20 @@
 
 // typedef found in dict.h rather than here
 #include "dict.h"
+#include <string.h>
+#include "common.h"
+#include "getKey.h"
+
+// #include "stack_ops.h"
+// #include "serial_io.h"
 
 /* NAMED creates a string in flash */
 #define NAMED(x, y) const char x[]=y
 
+/* buffer required for strings read from flash */
+char namebuf[maxtib];
+
+/* destructively display top of stack, decimal */
 NAMED(_dott, ".");
 void dott(void) { // earlier dot() word bypassed temporarily
     // io_write(io, (uint8_t *)" ~dot~", 7);
@@ -32,3 +42,16 @@ const entry dictionary[] = { // populated just enough to test basics
     { _dott,      dott   },
     { _nopp,      nopp   },
 };
+
+/* Number of words in the dictionary */
+const int entries = sizeof dictionary / sizeof dictionary[0];
+
+/* Find a word in the dictionary, returning its position */
+int locate() {
+  for (int i = entries - 1; i >= 0; i--) {
+    strcpy(namebuf, dictionary[i].name);
+ // int  strcmp (const char *, const char *);
+    if (!strcmp(tib, namebuf)) return i;
+  }
+  return -11; // return 0;
+}
