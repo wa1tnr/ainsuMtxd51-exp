@@ -97,3 +97,7 @@ stepper.d
 tmc26.d
 uartport.d
 held*
+common.h__NEXT_
+driver_init.c__NEXT_
+driver_init.h__NEXT_
+main.c__NEXT_
