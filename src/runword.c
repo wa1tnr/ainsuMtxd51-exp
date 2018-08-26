@@ -18,6 +18,9 @@ void runword(void) {
     // 5 #define LOCATE_BOUNDS_ERR -11
     if ((place != LOCATE_BOUNDS_ERR) & (place < (entries - 1))) { // if ((place != 0) & ..
         io_write(io, (uint8_t *)" ~runword place fgh~ ", 20);
+        push(place); dot();
+        dictionary[place].function(); // meat on the bone
+        _ok(); // defined yet?
         return;
     }
 
