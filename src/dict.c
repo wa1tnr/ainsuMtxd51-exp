@@ -25,9 +25,16 @@ void dott(void) { // earlier dot() word bypassed temporarily
 NAMED(_nop, "nop"); // swapped _name with _nopp
 void nop(void) { }
 
+/* discard top of stack */
 NAMED(_drop, "drop");
 void drop(void) {
-    io_write(io, (uint8_t *)" ~drop~", 7);
+  pop();
+}
+
+/* recover dropped stack item */
+NAMED(_back, "back");
+void back(void) {
+  for (int i = 1; i < STKSIZE; i++) drop();
 }
 
 /* exchange top two stack items */
@@ -56,6 +63,7 @@ const entry dictionary[] = { // populated just enough to test basics
     { _nop,       nop    },
     { _dott,      dott   },
     { _drop,      drop   },
+    { _back,      back   },
     { _swap,      swap   },
     { _dotS,      dotS   },
     { _nopp,      nopp   },
@@ -74,4 +82,3 @@ int locate() {
   //  5 #define LOCATE_BOUNDS_ERR -11
   return LOCATE_BOUNDS_ERR ; // return 0;
 }
-
