@@ -23,26 +23,32 @@ void dott(void) { // earlier dot() word bypassed temporarily
 }
 
 NAMED(_nop, "nop"); // swapped _name with _nopp
-void nop() { }
+void nop(void) { }
 
 NAMED(_drop, "drop");
-void drop() {
+void drop(void) {
     io_write(io, (uint8_t *)" ~drop~", 7);
 }
 
+/* exchange top two stack items */
 NAMED(_swap, "swap");
-void swap() {
-    io_write(io, (uint8_t *)" ~swap~", 7);
+void swap(void) {
+  int a;
+  int b;
+  a = pop();
+  b = pop();
+  push(a);
+  push(b);
 }
 
 /* display whole stack, decimal */
 NAMED(_dotS, ".s");
-void dotS() {
+void dotS(void) {
     for (int i = 0; i < STKSIZE; i++) dot();
 }
 
 NAMED(_nopp, " ");  // swapped _name with _nop
-void nopp() { }
+void nopp(void) { }
 
 /* table of names and function addresses in flash */
 // extern const entry dictionary[];
@@ -68,3 +74,4 @@ int locate() {
   //  5 #define LOCATE_BOUNDS_ERR -11
   return LOCATE_BOUNDS_ERR ; // return 0;
 }
+
