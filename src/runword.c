@@ -20,12 +20,14 @@ void runword(void) {
         io_write(io, (uint8_t *)" ~runword place fgh~ ", 20);
         push(place); dot();
         dictionary[place].function(); // meat on the bone
-        _ok(); // defined yet?
+        _ok();
         return;
     }
 
     if (isNumber()) {
+        push(number()); // pivotal change
         io_write(io, (uint8_t *)" ~runword isNumber 773~ ", 24);
+        _ok();
         return;
     }
     // Serial.println("?");
