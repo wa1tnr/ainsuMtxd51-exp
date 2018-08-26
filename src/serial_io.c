@@ -12,6 +12,7 @@
 #include "readword.h"
 #include "runword.h"
 #include "stack_ops.h"
+#include "debugging.h"
 
 struct io_descriptor *io;
 
@@ -189,11 +190,15 @@ void USART_0_example_lower(void) {
     while(-1) { // endless loop, read one char, write one char (echo)
         readword();
         runword();
-        io_write(io, (uint8_t *)" ~readword~ ", 12);
+        if ( DEBUG_FORTH_DICT_PRIMITIVES ) {
+            io_write(io, (uint8_t *)" ~readword~ ", 12);
+        }
         if (isNumber()) {
-            // io_write(io, (uint8_t *)"  ~isNumber~  ", 14);
-            push(number());
-            dot(); // the forth word 'dot' ( a '.' by itself on the command line)
+            if ( DEBUG_FORTH_DICT_PRIMITIVES ) {
+                // io_write(io, (uint8_t *)"  ~isNumber~  ", 14);
+                push(number());
+                dot(); // the forth word 'dot' ( a '.' by itself on the command line)
+            }
             dispatcher_simple_int(); // command processor
         }
         tib[0] = ch[0];
