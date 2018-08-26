@@ -2,6 +2,8 @@
 
 /* dict.h */
 
+#define LOCATE_BOUNDS_ERR -11
+
 extern int locate();
 extern const int entries; // = sizeof dictionary / sizeof dictionary[0];
 
