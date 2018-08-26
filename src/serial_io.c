@@ -69,6 +69,11 @@ void fg_yellow(void) { // foreground yellow
 
 uint8_t *buf;
 
+void _ok(void) {
+    io_write(io, (uint8_t *) " ~serial_io.c LINE 73: ok~ ",  27);
+                           // 123456789012345678901234567890123456789012345
+}
+
 void filter(void) {
 
     // capture_warm();
