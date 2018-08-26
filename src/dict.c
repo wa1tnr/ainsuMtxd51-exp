@@ -54,5 +54,6 @@ int locate() {
  // int  strcmp (const char *, const char *);
     if (!strcmp(tib, namebuf)) return i;
   }
-  return -11; // return 0;
+  //  5 #define LOCATE_BOUNDS_ERR -11
+  return LOCATE_BOUNDS_ERR ; // return 0;
 }
