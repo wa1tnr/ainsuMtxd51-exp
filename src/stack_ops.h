@@ -1,7 +1,9 @@
 /* stack_ops.h */
-
 // const int STKSIZE = 8;
+#define STKSIZE 8
 // const int STKMASK = 7;
+#define STKMASK 7
+
 extern int stack[];
 extern int p; // = 0;
 
