@@ -60,3 +60,20 @@ void dot(void) {
 void drop(void) {
     pop();
 }
+
+/* recover dropped stack item */
+// 27 NAMED(_back, "back");
+void back(void) {
+    for (int i = 1; i < STKSIZE; i++) drop();
+}
+
+/* exchange top two stack items */
+// NAMED(_swap, "swap");
+void swap(void) {
+    int a;
+    int b;
+    a = pop();
+    b = pop();
+    push(a);
+    push(b);
+}
