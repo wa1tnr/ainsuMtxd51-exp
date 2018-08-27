@@ -1,8 +1,7 @@
-// Sun Aug 26 20:40:59 UTC 2018
+// Mon Aug 27 03:53:51 UTC 2018
 
 /* dict.c */
 
-// typedef found in dict.h rather than here
 #include "dict.h"
 #include <string.h>
 #include "common.h"
@@ -23,18 +22,17 @@ void dott(void) { // earlier dot() word bypassed temporarily
 NAMED(_nop, "nop"); // swapped _name with _nopp
 void nop(void) { }
 
-/* display whole stack, decimal */
-NAMED(_dotS, ".s");
-void dotS(void) {
-    for (int i = 0; i < STKSIZE; i++) dot();
-}
-
 NAMED(_nopp, " ");  // swapped _name with _nop
 void nopp(void) { }
 
+
+/* look in stack_ops.c - for example - to find the
+   definitions of most of the earliest dictionary
+   entries referred to in the table found below. */
+
 /* table of names and function addresses in flash */
 // extern const entry dictionary[];
-const entry dictionary[] = { // populated just enough to test basics
+const entry dictionary[] = {
     { _nop,       nop    },
     { _dott,      dott   },
     { _drop,      drop   },
@@ -51,9 +49,7 @@ const int entries = sizeof dictionary / sizeof dictionary[0];
 int locate() {
   for (int i = entries - 1; i >= 0; i--) {
     strcpy(namebuf, dictionary[i].name);
- // int  strcmp (const char *, const char *);
     if (!strcmp(tib, namebuf)) return i;
   }
-  //  5 #define LOCATE_BOUNDS_ERR -11
   return LOCATE_BOUNDS_ERR ; // return 0;
 }
