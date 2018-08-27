@@ -7,7 +7,9 @@
 #include "common.h"
 #include "getKey.h"
 #include "serial_io.h"
+
 #include "stack_ops.h"
+#include "math.h"
 #include "flashDict.h"
 
 /* buffer required for strings read from flash */
@@ -39,6 +41,8 @@ const entry dictionary[] = {
     { _back,      back   },
     { _swap,      swap   },
     { _dotS,      dotS   },
+    { _plus,      plus   },
+    { _add,       add    },
     { _nopp,      nopp   },
 };
 
