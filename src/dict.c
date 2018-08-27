@@ -23,23 +23,6 @@ void dott(void) { // earlier dot() word bypassed temporarily
 NAMED(_nop, "nop"); // swapped _name with _nopp
 void nop(void) { }
 
-/* recover dropped stack item */
-NAMED(_back, "back");
-void back(void) {
-  for (int i = 1; i < STKSIZE; i++) drop();
-}
-
-/* exchange top two stack items */
-NAMED(_swap, "swap");
-void swap(void) {
-  int a;
-  int b;
-  a = pop();
-  b = pop();
-  push(a);
-  push(b);
-}
-
 /* display whole stack, decimal */
 NAMED(_dotS, ".s");
 void dotS(void) {
