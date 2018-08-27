@@ -80,7 +80,10 @@ void _ok(void) {
     }
     // primary OK prompting at the moment, is here:
     // io_write(io, (uint8_t *) "okay", 4);
-    io_write(io, (uint8_t *) " ok", 4);
+    if (crlfstate == -1) {
+        io_write(io, (uint8_t *) " ok", 5); // echo TODO \r\n on some terminals
+        crlfstate = 0;
+    }
 }
 
 void filter(void) {
