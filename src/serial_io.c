@@ -170,10 +170,10 @@ void USART_0_example_lower(void) {
     io_write(io, (uint8_t *)
      // "xKM_converser_d51-ee-fixed-    ", 31); // private branch - see KM_converser_d51 instead
      //  12345678901234567890123456789012345678901234567890
-     // "KM_converser_d51         ", 25); // private branch - see KM_converser_d51 instead
+        "KM_converser_d51         ", 25); // private branch - see KM_converser_d51 instead
 
      // prep for merge into master, 25 Aug 20:58 UTC:
-        "On branch master         ", 25); // reflect that this is really branch master
+     // "On branch master         ", 25); // reflect that this is really branch master
 
 /*
     io_write(io, (uint8_t *)
@@ -181,7 +181,7 @@ void USART_0_example_lower(void) {
 */
 
     io_write(io, (uint8_t *)
-        "Mon Aug 27 00:35:01 UTC 2018\r\n\r\n",                      32);
+        "Mon Aug 27 01:47:48 UTC 2018\r\n\r\n",                      32);
     /*   12345678901234567890123456789012345678901234567890
                  10        20        30        40        50 */
 
