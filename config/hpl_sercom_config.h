@@ -204,11 +204,11 @@
 #endif
 
 #ifndef CONF_SERCOM_3_USART_RXPO
-#define CONF_SERCOM_3_USART_RXPO 1 /* RX is on PIN_PB17 */
+#define CONF_SERCOM_3_USART_RXPO 1 /* RX is on PIN_PA23 */
 #endif
 
 #ifndef CONF_SERCOM_3_USART_TXPO
-#define CONF_SERCOM_3_USART_TXPO 0 /* TX is on PIN_PB16 */
+#define CONF_SERCOM_3_USART_TXPO 0 /* TX is on PIN_PA22 */
 #endif
 
 /* Set correct parity settings in register interface based on PARITY setting */
