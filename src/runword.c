@@ -14,18 +14,21 @@ void runword(void) {
     if ( DEBUG_FORTH_DICT_PRIMITIVES ) {
         io_write(io,     (uint8_t *)" ~runword place echo~ ", 22);
     }
-    push(place);
     if ( DEBUG_FORTH_DICT_PRIMITIVES ) {
-        io_write(io, (uint8_t *)    " ~runword dot~ ", 15);
+        io_write(io, (uint8_t *)    " ~runword d0t~ ", 15);
                              /*  1234567890123456789012345678901234567890 */
     }
-    dot();
+    if ( DEBUG_FORTH_DICT_PRIMITIVES ) {
+        push(place); dot();
+    }
     // 5 #define LOCATE_BOUNDS_ERR -11
     if ((place != LOCATE_BOUNDS_ERR) & (place < (entries - 1))) { // if ((place != 0) & ..
         if ( DEBUG_FORTH_DICT_PRIMITIVES ) {
             io_write(io, (uint8_t *)" ~runword place fgh~ ", 20);
         }
-        push(place); dot();
+        if ( DEBUG_FORTH_DICT_PRIMITIVES ) {
+            push(place); dot();
+        }
         dictionary[place].function(); // meat on the bone
         _ok();
         return;
