@@ -9,8 +9,7 @@
  * \brief CPU's Clock frequency
  */
 #ifndef CONF_CPU_FREQUENCY
-// #define CONF_CPU_FREQUENCY 0
-// closed loop
+// #define CONF_CPU_FREQUENCY 0 // TODO wa1tnr 27 Aug: Atmel Start did this .. don't know why
 #define CONF_CPU_FREQUENCY 48000000
 #endif
 
@@ -79,18 +78,17 @@
 #endif
 
 /**
- * \def CONF_GCLK_SERCOM5_CORE_FREQUENCY
- * \brief SERCOM5's Core Clock frequency
+ * \def CONF_GCLK_SERCOM3_CORE_FREQUENCY
+ * \brief SERCOM3's Core Clock frequency
  */
 #ifndef CONF_GCLK_SERCOM3_CORE_FREQUENCY
-// #define CONF_GCLK_SERCOM5_CORE_FREQUENCY 0
-// closed loop
+// #define CONF_GCLK_SERCOM3_CORE_FREQUENCY 0 // TODO wa1tnr 27 Aug: Atmel Start did this .. don't know why
 #define CONF_GCLK_SERCOM3_CORE_FREQUENCY 48000000
 #endif
 
 /**
- * \def CONF_GCLK_SERCOM5_SLOW_FREQUENCY
- * \brief SERCOM5's Slow Clock frequency
+ * \def CONF_GCLK_SERCOM3_SLOW_FREQUENCY
+ * \brief SERCOM3's Slow Clock frequency
  */
 #ifndef CONF_GCLK_SERCOM3_SLOW_FREQUENCY
 #define CONF_GCLK_SERCOM3_SLOW_FREQUENCY 32768
