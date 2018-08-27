@@ -168,7 +168,11 @@ void USART_0_example_lower(void) {
         "UART pins TX and RX used with CP2104 bridge.\r\n\r\n",      48);
 
     io_write(io, (uint8_t *)
-        "xKM_converser_d51-gg-    ", 25); // private branch - see KM_converser_d51 instead
+        "atm_start_new_try_27_aug-aa-    ", 32); // private branch - see KM_converser_d51 instead
+
+    // PRESERVE BRANCH_STAMP for lineage verification:
+    //  "xKM_converser_d51-gg-    ", 25); // private branch - see KM_converser_d51 instead
+
      //  12345678901234567890123456789012345678901234567890
      // "KM_converser_d51         ", 25);
 
@@ -181,7 +185,11 @@ void USART_0_example_lower(void) {
 */
 
     io_write(io, (uint8_t *)
-        "Mon Aug 27 04:04:40 UTC 2018\r\n\r\n",                      32);
+        "Mon Aug 27 20:11:04 UTC 2018\r\n\r\n",                      32);
+
+    // PRESERVE TIMESTAMP for lineage verification:
+    //  "Mon Aug 27 04:04:40 UTC 2018\r\n\r\n",                      32);
+
     /*   12345678901234567890123456789012345678901234567890
                  10        20        30        40        50 */
 
