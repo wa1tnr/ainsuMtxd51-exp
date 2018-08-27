@@ -9,9 +9,7 @@
 #include "getKey.h"
 #include "serial_io.h"
 #include "stack_ops.h"
-
-/* NAMED creates a string in flash */
-#define NAMED(x, y) const char x[]=y
+#include "flashDict.h"
 
 /* buffer required for strings read from flash */
 char namebuf[maxtib];
@@ -24,12 +22,6 @@ void dott(void) { // earlier dot() word bypassed temporarily
 
 NAMED(_nop, "nop"); // swapped _name with _nopp
 void nop(void) { }
-
-/* discard top of stack */
-NAMED(_drop, "drop");
-void drop(void) {
-  pop();
-}
 
 /* recover dropped stack item */
 NAMED(_back, "back");
