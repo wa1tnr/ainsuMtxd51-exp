@@ -1,0 +1,14 @@
+
+ was:
+
+  On branch xKM_converser_d51-jj-atmel_start_verif-
+
+then:
+
+ git checkout -b xKM_USB_Converser_d51
+
+ Immediate parent to present branch is therefore:
+
+    xKM_converser_d51-jj-atmel_start_verif-
+
+Mon Aug 27 20:51:29 UTC 2018
