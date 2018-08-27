@@ -23,6 +23,9 @@ else
 	endif
 endif
 
+CFLAGS = -Wall -Werror
+CFLAGS += -DADAFRUIT_METRO_M4_EXPRESS
+
 # List the subdirectories for creating object files
 SUB_DIRS +=  \
  \
@@ -39,6 +42,7 @@ examples \
 hpl/gclk \
 hpl/oscctrl \
 gcc/gcc \
+src \
 hpl/core
 
 # List the object files
@@ -60,7 +64,6 @@ hpl/mclk/hpl_mclk.o \
 hpl/ramecc/hpl_ramecc.o \
 hal/src/hal_init.o \
 gcc/gcc/startup_samd51.o \
-main.o \
 hpl/osc32kctrl/hpl_osc32kctrl.o \
 examples/driver_examples.o \
 driver_init.o \
@@ -69,7 +72,21 @@ hal/src/hal_gpio.o \
 hal/utils/src/utils_event.o \
 hal/src/hal_sleep.o \
 atmel_start.o \
-hal/src/hal_atomic.o
+hal/src/hal_atomic.o \
+pins.o \
+src/dump.o \
+src/nyb_stack.o \
+src/getKey.o \
+src/readword.o \
+src/serial_io.o \
+src/warm.o \
+src/clock_gen_OE.o \
+src/stack_ops.o \
+src/itoa.o \
+src/dict.o \
+src/runword.o \
+src/math.o \
+main.o
 
 OBJS_AS_ARGS +=  \
 "hal/src/hal_io.o" \
@@ -89,7 +106,6 @@ OBJS_AS_ARGS +=  \
 "hpl/ramecc/hpl_ramecc.o" \
 "hal/src/hal_init.o" \
 "gcc/gcc/startup_samd51.o" \
-"main.o" \
 "hpl/osc32kctrl/hpl_osc32kctrl.o" \
 "examples/driver_examples.o" \
 "driver_init.o" \
@@ -98,7 +114,21 @@ OBJS_AS_ARGS +=  \
 "hal/utils/src/utils_event.o" \
 "hal/src/hal_sleep.o" \
 "atmel_start.o" \
-"hal/src/hal_atomic.o"
+"hal/src/hal_atomic.o" \
+"pins.o" \
+"src/dump.o" \
+"src/nyb_stack.o" \
+"src/getKey.o" \
+"src/readword.o" \
+"src/serial_io.o" \
+"src/warm.o" \
+"src/clock_gen_OE.o" \
+"src/stack_ops.o" \
+"src/itoa.o" \
+"src/dict.o" \
+"src/runword.o" \
+"src/math.o" \
+"main.o"
 
 # List the dependency files
 DEPS := $(OBJS:%.o=%.d)
@@ -123,14 +153,27 @@ DEPS_AS_ARGS +=  \
 "hpl/mclk/hpl_mclk.d" \
 "driver_init.d" \
 "hpl/osc32kctrl/hpl_osc32kctrl.d" \
-"main.d" \
 "examples/driver_examples.d" \
 "hal/src/hal_sleep.d" \
 "hpl/sercom/hpl_sercom.d" \
 "hal/utils/src/utils_event.d" \
 "hal/src/hal_atomic.d" \
 "hpl/oscctrl/hpl_oscctrl.d" \
-"atmel_start.d"
+"atmel_start.d" \
+"pins.d" \
+"src/dump.d" \
+"src/nyb_stack.d" \
+"src/getKey.d" \
+"src/readword.d" \
+"src/serial_io.d" \
+"src/warm.d" \
+"src/clock_gen_OE.d" \
+"src/stack_ops.d" \
+"src/itoa.d" \
+"src/dict.d" \
+"src/runword.d" \
+"src/math.d" \
+"main.d"
 
 OUTPUT_FILE_NAME :=AtmelStart
 QUOTE := "
@@ -145,6 +188,7 @@ vpath %.S ../
 all: $(SUB_DIRS) $(OUTPUT_FILE_PATH)
 
 # Linker target
+# -T"../gcc/gcc/samd51j19a_flash.ld" \
 
 $(OUTPUT_FILE_PATH): $(OBJS)
 	@echo Building target: $@
@@ -152,7 +196,7 @@ $(OUTPUT_FILE_PATH): $(OBJS)
 	$(QUOTE)arm-none-eabi-gcc$(QUOTE) -o $(OUTPUT_FILE_NAME).elf $(OBJS_AS_ARGS) -Wl,--start-group -lm -Wl,--end-group -mthumb \
 -Wl,-Map="$(OUTPUT_FILE_NAME).map" --specs=nano.specs -Wl,--gc-sections -mcpu=cortex-m4 \
  \
--T"../gcc/gcc/samd51j19a_flash.ld" \
+-T"../gcc/gcc/samd51j19a_flash_with_bootloader.ld" \
 -L"../gcc/gcc"
 	@echo Finished building target: $@
 
@@ -175,27 +219,27 @@ $(OUTPUT_FILE_PATH): $(OBJS)
 %.o: %.c
 	@echo Building file: $<
 	@echo ARM/GNU C Compiler
-	$(QUOTE)arm-none-eabi-gcc$(QUOTE) -x c -mthumb -DDEBUG -Os -ffunction-sections -mlong-calls -g3 -Wall -c -std=gnu99 \
+	$(QUOTE)arm-none-eabi-gcc$(QUOTE) -x c -mthumb -DDEBUG -Os -ffunction-sections -mlong-calls -g3 $(CFLAGS)       -c -std=gnu99 \
 -D__SAMD51J19A__ -mcpu=cortex-m4 -mfloat-abi=softfp -mfpu=fpv4-sp-d16 \
--I"../" -I"../config" -I"../examples" -I"../hal/include" -I"../hal/utils/include" -I"../hpl/core" -I"../hpl/dmac" -I"../hpl/gclk" -I"../hpl/mclk" -I"../hpl/osc32kctrl" -I"../hpl/oscctrl" -I"../hpl/pm" -I"../hpl/port" -I"../hpl/ramecc" -I"../hpl/sercom" -I"../hri" -I"../" -I"../CMSIS/Include" -I"../include"  \
+-I"../" -I"../config" -I"../examples" -I"../src" -I"../hal/include" -I"../hal/utils/include" -I"../hpl/core" -I"../hpl/dmac" -I"../hpl/gclk" -I"../hpl/mclk" -I"../hpl/osc32kctrl" -I"../hpl/oscctrl" -I"../hpl/pm" -I"../hpl/port" -I"../hpl/ramecc" -I"../hpl/sercom" -I"../hri" -I"../" -I"../CMSIS/Include" -I"../include"  \
 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"  -o "$@" "$<"
 	@echo Finished building: $<
 
 %.o: %.s
 	@echo Building file: $<
 	@echo ARM/GNU Assembler
-	$(QUOTE)arm-none-eabi-as$(QUOTE) -x c -mthumb -DDEBUG -Os -ffunction-sections -mlong-calls -g3 -Wall -c -std=gnu99 \
+	$(QUOTE)arm-none-eabi-as$(QUOTE) -x c -mthumb -DDEBUG -Os -ffunction-sections -mlong-calls -g3 $(CFLAGS)        -c -std=gnu99 \
 -D__SAMD51J19A__ -mcpu=cortex-m4 -mfloat-abi=softfp -mfpu=fpv4-sp-d16 \
--I"../" -I"../config" -I"../examples" -I"../hal/include" -I"../hal/utils/include" -I"../hpl/core" -I"../hpl/dmac" -I"../hpl/gclk" -I"../hpl/mclk" -I"../hpl/osc32kctrl" -I"../hpl/oscctrl" -I"../hpl/pm" -I"../hpl/port" -I"../hpl/ramecc" -I"../hpl/sercom" -I"../hri" -I"../" -I"../CMSIS/Include" -I"../include"  \
+-I"../" -I"../config" -I"../examples" -I"../src" -I"../hal/include" -I"../hal/utils/include" -I"../hpl/core" -I"../hpl/dmac" -I"../hpl/gclk" -I"../hpl/mclk" -I"../hpl/osc32kctrl" -I"../hpl/oscctrl" -I"../hpl/pm" -I"../hpl/port" -I"../hpl/ramecc" -I"../hpl/sercom" -I"../hri" -I"../" -I"../CMSIS/Include" -I"../include"  \
 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"  -o "$@" "$<"
 	@echo Finished building: $<
 
 %.o: %.S
 	@echo Building file: $<
 	@echo ARM/GNU Preprocessing Assembler
-	$(QUOTE)arm-none-eabi-gcc$(QUOTE) -x c -mthumb -DDEBUG -Os -ffunction-sections -mlong-calls -g3 -Wall -c -std=gnu99 \
+	$(QUOTE)arm-none-eabi-gcc$(QUOTE) -x c -mthumb -DDEBUG -Os -ffunction-sections -mlong-calls -g3 $(CFLAGS)       -c -std=gnu99 \
 -D__SAMD51J19A__ -mcpu=cortex-m4 -mfloat-abi=softfp -mfpu=fpv4-sp-d16 \
--I"../" -I"../config" -I"../examples" -I"../hal/include" -I"../hal/utils/include" -I"../hpl/core" -I"../hpl/dmac" -I"../hpl/gclk" -I"../hpl/mclk" -I"../hpl/osc32kctrl" -I"../hpl/oscctrl" -I"../hpl/pm" -I"../hpl/port" -I"../hpl/ramecc" -I"../hpl/sercom" -I"../hri" -I"../" -I"../CMSIS/Include" -I"../include"  \
+-I"../" -I"../config" -I"../examples" -I"../src" -I"../hal/include" -I"../hal/utils/include" -I"../hpl/core" -I"../hpl/dmac" -I"../hpl/gclk" -I"../hpl/mclk" -I"../hpl/osc32kctrl" -I"../hpl/oscctrl" -I"../hpl/pm" -I"../hpl/port" -I"../hpl/ramecc" -I"../hpl/sercom" -I"../hri" -I"../" -I"../CMSIS/Include" -I"../include"  \
 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"  -o "$@" "$<"
 	@echo Finished building: $<
 
@@ -208,6 +252,44 @@ endif
 
 $(SUB_DIRS):
 	$(MK_DIR) "$@"
+
+arc:
+	# running target 'make arc' now
+	cp   ./AtmelStart.bin    _stored/AtmelStart.bin
+	cp   ./AtmelStart.eep    _stored/AtmelStart.eep
+	cp   ./AtmelStart.elf    _stored/AtmelStart.elf
+	cp   ./AtmelStart.hex    _stored/AtmelStart.hex
+	cp   ./AtmelStart.lss    _stored/AtmelStart.lss
+	cp   ./AtmelStart.map    _stored/AtmelStart.map
+
+# git checkout -- AtmelStart.bin
+
+checkout:
+	# running target 'make checkout' now
+	@git    checkout    --     _stored/AtmelStart.bin
+	@git    checkout    --     _stored/AtmelStart.elf
+	@git    checkout    --     _stored/AtmelStart.hex
+	@git    checkout    --     _stored/AtmelStart.lss
+	@git    checkout    --     _stored/AtmelStart.map
+
+#       @git    checkout    --     AtmelStart.eep
+
+# install: arc checkout
+install: arc
+	@echo -n "[0;1;33;40msleeping 5 seconds.."
+	@sleep 5
+	@echo    ".  Done.[0m"
+	@sleep 1
+	# running target '[0;1;34mmake install[0m' now
+	@sleep 1
+	@echo "[0;1;32;40m./scripts/_bossac_local.sh [0;1;36;40m./AtmelStart.bin[0m"
+	@sleep 1
+	@./scripts/_bossac_local.sh ./AtmelStart.bin
+	# use 'make checkout' to tell git no changes to AtmelStart.*
+
+
+# for clean target:
+# rm -f ./_stored/AtmelStart.???
 
 clean:
 	rm -f $(OBJS_AS_ARGS)
