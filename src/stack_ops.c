@@ -62,7 +62,7 @@ void drop(void) {
 }
 
 /* recover dropped stack item */
-// 27 NAMED(_back, "back");
+// NAMED(_back, "back");
 void back(void) {
     for (int i = 1; i < STKSIZE; i++) drop();
 }
@@ -77,3 +77,58 @@ void swap(void) {
     push(a);
     push(b);
 }
+
+/* display whole stack, decimal */
+// NAMED(_dotS, ".s");
+void dotS(void) {
+    for (int i = 0; i < STKSIZE; i++) dot();
+}
+
+
+/*
+
+  1. move the code here to stack_ops.c - or to a good
+     place for that code, if it's not stack related.
+
+     ex.
+
+     The code from the dotS word is copied here to stack_ops.c:
+
+         // display whole stack, decimal
+
+         // NAMED(_dotS, ".s");
+         void dotS(void) {
+             for (int i = 0; i < STKSIZE; i++) dot();
+         }
+
+      This code was formerly held by dict.c before it was
+      moved to stack_ops.c - the old copy is held there as
+      a comment (for a while) and is then removed entirely,
+      once proper program function is confirmed.
+
+   2. Move it's NAMED macro applier into the correct .h file:
+
+         // flashDict.h
+         #include "dict_common.h"
+         NAMED(_drop, "drop");
+         NAMED(_back, "back");
+         NAMED(_swap, "swap");
+         NAMED(_dotS, ".s");
+
+      For the time being, flashDict.h is the only correct file to
+      hold these NAMED macro appliers (the macro is the original
+      #define NAMED creation; the word 'applier' is used here to
+      indicate a single 'creation' with many 'appliers'.
+
+   3. Place a prototype in the corresponding .h file to where the
+      main code went.  Use stack_ops.h in this example, since the
+      main code for the dotS word was stored in stack_ops.c (after
+      having moved it).
+
+         // stack_ops.h
+         .
+         .
+         extern void back(void);
+         extern void swap(void);
+         extern void dotS(void);
+*/
