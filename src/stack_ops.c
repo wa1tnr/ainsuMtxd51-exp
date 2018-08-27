@@ -55,3 +55,8 @@ void dot(void) {
     io_write(io, (uint8_t *)pr_strn, len_pr_strn);
     _spc();
 }
+
+/* discard top of stack */
+void drop(void) {
+    pop();
+}
