@@ -71,8 +71,11 @@ void fg_yellow(void) { // foreground yellow
 uint8_t *buf;
 
 void _ok(void) {
-    io_write(io, (uint8_t *) " ~serial_io.c LINE 73: ok~ ",  27);
-                           // 123456789012345678901234567890123456789012345
+    if ( DEBUG_FORTH_DICT_PRIMITIVES ) {
+        io_write(io, (uint8_t *) " ~serial_io.c LINE 73: ",  23);
+                               // 123456789012345678901234567890123456789012345
+    }
+    io_write(io, (uint8_t *) "okay", 4);
 }
 
 void filter(void) {
@@ -96,7 +99,7 @@ void filter(void) {
 
     /* stanza -- CR */
     if ((uint8_t) *buf == 13) { // CR or 0x0d
-        io_write(io, (uint8_t *) " ok",  3);
+        // io_write(io, (uint8_t *) " ok",  3); // need to not do this here
         io_write(io, (uint8_t *) "\015",  1); // 0x0d
         io_write(io, (uint8_t *) "\012",  1); // 0x0a // your terminal may want differently
         return;
