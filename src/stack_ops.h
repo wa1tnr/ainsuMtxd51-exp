@@ -14,3 +14,5 @@ extern void push(int n);
 extern int pop(void);
 extern void dot(void);
 extern void drop(void);
+extern void back(void);
+extern void swap(void);
