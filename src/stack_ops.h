@@ -16,3 +16,4 @@ extern void dot(void);
 extern void drop(void);
 extern void back(void);
 extern void swap(void);
+extern void dotS(void);
