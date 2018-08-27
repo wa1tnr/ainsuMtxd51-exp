@@ -1,3 +1,37 @@
+
+ $ git status
+On branch KM_converser_d51
+
+ $ git merge xKM_converser_d51-ee-fixed- 
+Updating 26bba7e..9b4b90e
+Fast-forward
+ .gitignore                                    |  4 +++
+ doc/sample_run_27_aug_a.txt                   | 41 ++++++++++++++++++++++++
+ doc/status_this_branch_xKM_conv_d51-ee-fixed- |  7 +++++
+ gcc/Makefile                                  |  6 ++++
+ src/.gitignore                                | 26 ++++++++++++++++
+ src/debugging.h                               |  2 ++
+ src/dict.c                                    | 84 ++++++++++++++++++++++++++++++++++++++++++++++++++
+ src/dict.h                                    | 17 ++++++++++
+ src/runword.c                                 | 46 +++++++++++++++++++++++++++
+ src/runword.h                                 |  4 +++
+ src/serial_io.c                               | 38 ++++++++++++++++++-----
+ src/serial_io.h                               | 30 +++++++++---------
+ src/stack_ops.c                               |  1 +
+ src/stack_ops.h                               |  4 ++-
+ 14 files changed, 287 insertions(+), 23 deletions(-)
+ create mode 100644 doc/sample_run_27_aug_a.txt
+ create mode 100644 doc/status_this_branch_xKM_conv_d51-ee-fixed-
+ create mode 100644 src/debugging.h
+ create mode 100644 src/dict.c
+ create mode 100644 src/dict.h
+ create mode 100644 src/runword.c
+ create mode 100644 src/runword.h
+
+ $ date
+Mon Aug 27 01:06:39 UTC 2018
+
+
 To https://github.com/wa1tnr/ainsuMtxd51-exp.git
    d13fd21..235f7e4  KM_converser_d51 -> KM_converser_d51
  git $ git checkout master
