@@ -18,16 +18,16 @@
 #include "stack_ops.h"
 
 // const int STKSIZE = 8;
-#define STKSIZE 8
+// #define STKSIZE 8
 
 // const int STKMASK = 7;
-#define STKMASK 7
+// #define STKMASK 7
 
 int stack[STKSIZE];
 int p = 0;
 
 /* TOS is Top Of Stack */
-#define TOS stack[p]
+// #define TOS stack[p]
 
 /* push n to top of data stack */
 void push(int n) {
@@ -131,4 +131,23 @@ void dotS(void) {
          extern void back(void);
          extern void swap(void);
          extern void dotS(void);
+
+   4. (Obviously) update the dictionary with a new entry, as well:
+
+      // dict.c
+
+      // table of names and function addresses in flash
+
+      const entry dictionary[] = {
+          { _nop,       nop    },
+          { _dott,      dott   },
+          { _drop,      drop   },
+          { _back,      back   },
+          { _swap,      swap   },
+
+          { _dotS,      dotS   },   <<== NEW
+
+          { _nopp,      nopp   },
+      };
+
 */
