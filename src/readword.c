@@ -6,6 +6,8 @@
 // costs a bit more than 1kb:
 #include "stdlib.h"
 
+int crlfstate = 0; // differentiate when ascii 13 is entered to the terminal
+
 uint8_t pos = 0;
 
 /* Is the word in tib a number? */
@@ -27,12 +29,13 @@ void printing(void) {
     uint8_t ch_read = (uint32_t) ch[0];
 
     if (ch_read == 13) {
+        crlfstate = -1; // raise crlfstate TRUE
         _spc(); // do not print a cr here!
     } else {
         if (ch_read != 32) { // a space delimiter
-            io_write(io, (uint8_t *) ch, 1);
+            io_write(io, (uint8_t *) ch, 1); // most chars echo TODO
         } else { // it's a space
-            _spc();
+            // _spc(); - may need echo on some terminals TODO
         }
     }
 }
