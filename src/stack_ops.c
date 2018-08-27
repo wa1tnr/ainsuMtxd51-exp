@@ -44,16 +44,14 @@ int pop(void) {
 
 /* destructively display top of stack, decimal */
 void dot(void) {
-    _spc(); _spc(); // print formatting/spacing
-    // push(7345280); // could do this here as a test
+    _spc(); // print formatting/spacing
     int len_pr_strn = 0;
     int popped = pop();
     pr_strn[0] = (uint32_t) "\0";
-    input_intgr = popped; // 5280; // feet in a mile
+    input_intgr = popped;
     itoa (input_intgr, pr_strn);
     len_pr_strn = strlen(pr_strn);
     io_write(io, (uint8_t *)pr_strn, len_pr_strn);
-    _spc();
 }
 
 /* discard top of stack */
