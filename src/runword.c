@@ -42,5 +42,5 @@ void runword(void) {
         _ok();
         return;
     }
-    // Serial.println("?");
+    _que(); // Serial.println("?");
 }
