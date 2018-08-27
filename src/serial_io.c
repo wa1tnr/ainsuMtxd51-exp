@@ -80,7 +80,7 @@ void _ok(void) {
     }
     // primary OK prompting at the moment, is here:
     // io_write(io, (uint8_t *) "okay", 4);
-    io_write(io, (uint8_t *) "ok", 4);
+    io_write(io, (uint8_t *) " ok", 4);
 }
 
 void filter(void) {
