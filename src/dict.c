@@ -18,7 +18,7 @@ char namebuf[maxtib];
 /* destructively display top of stack, decimal */
 NAMED(_dott, ".");
 void dott(void) { // earlier dot() word bypassed temporarily
-    io_write(io, (uint8_t *)" ~dot~", 7);
+    dot(); // io_write(io, (uint8_t *)" ~dot~", 7);
 }
 
 NAMED(_nop, "nop"); // swapped _name with _nopp
