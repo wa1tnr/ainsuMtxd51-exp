@@ -13,3 +13,4 @@ extern int p; // = 0;
 extern void push(int n);
 extern int pop(void);
 extern void dot(void);
+extern void drop(void);
