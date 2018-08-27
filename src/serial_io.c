@@ -75,7 +75,9 @@ void _ok(void) {
         io_write(io, (uint8_t *) " ~serial_io.c LINE 73: ",  23);
                                // 123456789012345678901234567890123456789012345
     }
-    io_write(io, (uint8_t *) "okay", 4);
+    // primary OK prompting at the moment, is here:
+    // io_write(io, (uint8_t *) "okay", 4);
+    io_write(io, (uint8_t *) "ok", 4);
 }
 
 void filter(void) {
