@@ -165,12 +165,10 @@ void USART_0_example_lower(void) {
     io_write(io, (uint8_t *)
         "UART pins TX and RX used with CP2104 bridge.\r\n\r\n",      48);
 
-    //  "version: On branch ainsuMtxd51-exp-cc-\r\n",                40);
-    //  "timestamp:  Thu Aug 23 19:02:39 UTC 2018\r\n",              42);
     io_write(io, (uint8_t *)
-     // "xKM_converser_d51-ee-fixed-    ", 31); // private branch - see KM_converser_d51 instead
+        "xKM_converser_d51-gg-    ", 25); // private branch - see KM_converser_d51 instead
      //  12345678901234567890123456789012345678901234567890
-        "KM_converser_d51         ", 25); // private branch - see KM_converser_d51 instead
+     // "KM_converser_d51         ", 25);
 
      // prep for merge into master, 25 Aug 20:58 UTC:
      // "On branch master         ", 25); // reflect that this is really branch master
@@ -181,7 +179,7 @@ void USART_0_example_lower(void) {
 */
 
     io_write(io, (uint8_t *)
-        "Mon Aug 27 01:47:48 UTC 2018\r\n\r\n",                      32);
+        "Mon Aug 27 03:11:00 UTC 2018\r\n\r\n",                      32);
     /*   12345678901234567890123456789012345678901234567890
                  10        20        30        40        50 */
 
