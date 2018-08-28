@@ -11,9 +11,12 @@
 #include "stack_ops.h"
 #include "math.h"
 #include "flashDict.h"
+#include "warm.h"
 
 /* buffer required for strings read from flash */
 char namebuf[maxtib];
+
+NAMED(_warm_, "warm");
 
 /* destructively display top of stack, decimal */
 NAMED(_dott, ".");
@@ -46,6 +49,7 @@ const entry dictionary[] = {
     { _swap,      swap   },
     { _dotS,      dotS   },
     { _add,       add    },
+    { _warm_,     _warm  },
     { _nopp,      nopp   },
 };
 
