@@ -38,6 +38,9 @@ void nop(void) { }
 NAMED(_nopp, "nop");  // swapped _name with _nop
 void nopp(void) { }
 
+void help(void) {
+    io_write(io, (uint8_t *) "    type 'words' instead of 'help'.\r\n", 37);
+}
 
 void dump(void) { // 28 Aug 19:39 UTC
     adrs_ram = cdump();
@@ -66,6 +69,7 @@ const entry dictionary[] = {
     { _add,       add    },
     { _dump,      dump   },
     { _words,     words  },
+    { _help,      help   },
     { _warm_,     _warm  },
     { _nopp,      nopp   },
 };
