@@ -56,10 +56,8 @@ void words(void); // forward declaration // 28 Aug 22:35 UTC
 /* table of names and function addresses in flash */
 // extern const entry dictionary[];
 const entry dictionary[] = {
-
-    { _nop,       nop    }, // just switched these 28 Aug 22:49 UTC
-    { _plus,      plus   }, // just switched these 28 Aug 22:49 UTC
-                            // On branch xKM_converser_d51-kk-
+    { _nopp,      nopp   }, // just switched these 28 Aug 23:10 UTC
+    { _plus,      plus   },
     { _cr_n,      cr     },
     { _dott,      dott   },
     { _drop,      drop   },
@@ -71,7 +69,7 @@ const entry dictionary[] = {
     { _words,     words  },
     { _help,      help   },
     { _warm_,     _warm  },
-    { _nopp,      nopp   },
+    { _nop,       nop    }, // just switched these 28 Aug 23:10 UTC
 };
 
 /* Number of words in the dictionary */
@@ -89,7 +87,7 @@ int locate(void) {
 /* Display all words in dictionary */
 void words(void) { // 28 Aug 20:05 UTC
     int count_ln = 0; // count of line's length
-    for (int i = entries - 1; i >= 0; i--) {
+    for (int i = entries - 2; i >= 0; i--) { // entries - 2 mask the 'nop' word which is a space
         strcpy(namebuf, dictionary[i].name);
         count_ln = count_ln + strlen(namebuf) + 1 ; // how long this line is, so far
         io_write(io, (uint8_t *)namebuf, strlen(namebuf));
