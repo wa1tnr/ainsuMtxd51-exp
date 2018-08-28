@@ -43,7 +43,7 @@ void dump(void) { // 28 Aug 19:39 UTC
     push((uint32_t)adrs_ram); // address of the most recent line dumped
 }
 
-void words(void) {} // 28 Aug 19:39 UTC
+void words(void); // forward declaration // 28 Aug 22:35 UTC
 
 /* look in stack_ops.c - for example - to find the
    definitions of most of the earliest dictionary
@@ -71,10 +71,14 @@ const entry dictionary[] = {
 const int entries = sizeof dictionary / sizeof dictionary[0];
 
 /* Find a word in the dictionary, returning its position */
-int locate() {
+int locate(void) {
   for (int i = entries - 1; i >= 0; i--) {
     strcpy(namebuf, dictionary[i].name);
     if (!strcmp(tib, namebuf)) return i;
   }
   return LOCATE_BOUNDS_ERR ; // return 0;
+}
+
+/* Display all words in dictionary */
+void words(void) { // 28 Aug 20:05 UTC
 }
