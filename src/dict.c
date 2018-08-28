@@ -81,4 +81,8 @@ int locate(void) {
 
 /* Display all words in dictionary */
 void words(void) { // 28 Aug 20:05 UTC
+    for (int i = entries - 1; i >= 0; i--) {
+        strcpy(namebuf, dictionary[i].name);
+        io_write(io, (uint8_t *)namebuf, strlen(namebuf));
+    }
 }
