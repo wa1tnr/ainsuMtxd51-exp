@@ -90,5 +90,9 @@ void words(void) { // 28 Aug 20:05 UTC
         count_ln = count_ln + strlen(namebuf) + 1 ; // how long this line is, so far
         io_write(io, (uint8_t *)namebuf, strlen(namebuf));
         _spc();
+        if (count_ln > linelen) { // exceeded
+            count_ln = 0; // reset
+            _cr(); // newline
+        }
     }
 }
