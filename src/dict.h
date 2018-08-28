@@ -4,7 +4,8 @@
 
 #define LOCATE_BOUNDS_ERR -11
 
-#define LLENGTH 48 // affects the 'words' word only, atm
+// #define LLENGTH 48 // affects the 'words' word only, atm
+#define LLENGTH 19 // affects the 'words' word only, atm
 extern int linelen; // = LLENGTH; // = 28
 
 
