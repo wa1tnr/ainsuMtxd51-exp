@@ -1,4 +1,5 @@
-// Sat Aug 25 23:12:12 UTC 2018
+// Tue Aug 28 03:26:52 UTC 2018
+// branch: KM_converser_d51
 
 /* wa1tnr - August, 2018 LGPL v2.1 */
 
@@ -13,8 +14,9 @@
 #include "stack_ops.h"
 #include "debugging.h"
 
-#define timeStamp(t,l)   "Tue Aug 28 02:59:45 UTC 2018\r\n\r\n", 32
-#define branchStamp(b,l) "xKM_converser_d51-kk-    ", 25 // private branch - see KM_converser_d51 instead
+
+#define timeStamp(t,l)   "Tue Aug 28 03:26:52 UTC 2018\r\n\r\n", 32
+#define branchStamp(b,l) "KM_converser_d51         ", 25
 
 struct io_descriptor *io;
 
