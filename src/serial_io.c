@@ -15,8 +15,8 @@
 #include "debugging.h"
 #include "dict_common.h"
 
-#define timeStamp(t,l)   "Tue Aug 28 06:15:19 UTC 2018\r\n\r\n", 32
-#define branchStamp(b,l) "xKM_converser_d51-kk-    ", 25
+#define timeStamp(t,l)   "Tue Aug 28 06:23:52 UTC 2018\r\n\r\n", 32
+#define branchStamp(b,l) "KM_converser_d51    ", 20
 
 struct io_descriptor *io;
 
