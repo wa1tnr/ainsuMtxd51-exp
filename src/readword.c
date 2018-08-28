@@ -35,7 +35,7 @@ void printing(void) {
         if (ch_read != 32) { // a space delimiter
             io_write(io, (uint8_t *) ch, 1); // most chars echo TODO
         } else { // it's a space
-            // _spc(); - may need echo on some terminals TODO
+            _spc(); // wrong comment: may need echo on some terminals TODO
         }
     }
 }
