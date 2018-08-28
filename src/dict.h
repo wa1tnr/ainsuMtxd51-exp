@@ -15,3 +15,4 @@ typedef struct {
 } entry;
 
 extern const entry dictionary[];
+extern void nop(void);
