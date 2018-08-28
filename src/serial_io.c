@@ -13,6 +13,7 @@
 #include "runword.h"
 #include "stack_ops.h"
 #include "debugging.h"
+#include "dict_common.h"
 
 #define timeStamp(t,l)   "Tue Aug 28 03:33:46 UTC 2018\r\n\r\n", 32
 #define branchStamp(b,l) "On branch master         ", 25
@@ -74,7 +75,7 @@ void fg_yellow(void) { // foreground yellow
 uint8_t *buf;
 
 void _que(void) {
-    io_write(io, (uint8_t *) "?",         1);
+    io_write(io, (uint8_t *) "? ",         1);
 }
 
 void _ok(void) {
@@ -85,7 +86,7 @@ void _ok(void) {
     // primary OK prompting at the moment, is here:
     // io_write(io, (uint8_t *) "okay", 4);
     if (crlfstate == -1) {
-        io_write(io, (uint8_t *) " ok", 5); // echo TODO \r\n on some terminals
+        io_write(io, (uint8_t *) " ok\r\n", 5); // echo TODO \r\n on some terminals
         crlfstate = 0;
     }
 }
@@ -128,6 +129,10 @@ void _spc(void) {
 
 void _cr(void) {
     io_write(io, (uint8_t *) "\r\n",         2);
+}
+
+void cr(void) {
+    _cr();
 }
 
 void USART_0_example_upper(void) {
@@ -217,6 +222,7 @@ void USART_0_example_lower(void) {
         if ( DEBUG_FORTH_DICT_PRIMITIVES ) {
             io_write(io, (uint8_t *)" ~readword~ ", 12);
         }
+/*
         if (isNumber()) {
             if ( DEBUG_FORTH_DICT_PRIMITIVES ) {
                 // io_write(io, (uint8_t *)"  ~isNumber~  ", 14);
@@ -230,6 +236,7 @@ void USART_0_example_lower(void) {
         filter();
         io_write(io, (uint8_t *)tib, 1); // 1  is also length
         capture_warm();
+*/
     }
 #endif // #ifdef HAS_HELLO_INTERPRETER
 }
