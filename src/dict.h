@@ -4,6 +4,10 @@
 
 #define LOCATE_BOUNDS_ERR -11
 
+#define LLENGTH 48 // affects the 'words' word only, atm
+extern int linelen; // = LLENGTH; // = 28
+
+
 extern int locate();
 extern const int entries; // = sizeof dictionary / sizeof dictionary[0];
 
