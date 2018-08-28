@@ -1,8 +1,7 @@
-// Tue Aug 21 21:23:47 UTC 2018
-// On branch KM_converser_aa-
+// Tue Aug 28 19:29:30 UTC 2018
+// On branch xKM_converser_d51-kk-
 
 #include <atmel_start.h>
-// #include "driver_examples.h"
 #include "serial_io.h"
 #include "pins.h"
 #include "dump.h"
@@ -11,6 +10,9 @@
 #include "common.h"
 #include "itoa.h"
 #include "stack_ops.h"
+
+// previous:
+// Tue Aug 21 21:23:47 UTC 2018 // KM_converser_aa-
 
 void delays(void) { // delay some
     for (volatile int i=(3*21040); i>0; i--) {
@@ -55,10 +57,6 @@ int main(void)
 
     clock_gen_oe(); // clock generator 0 output enable
 
-    // blink_awhile(); // is the clock running?
-
-    // old location for this important function call:
-    // USART_0_example();
     USART_0_example_upper(); // initialize
 
     // rram = srdump();
