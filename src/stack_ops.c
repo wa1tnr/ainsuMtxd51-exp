@@ -44,7 +44,6 @@ int pop(void) {
 
 /* destructively display top of stack, decimal */
 void dot(void) {
-    _spc(); // print formatting/spacing
     int len_pr_strn = 0;
     int popped = pop();
     pr_strn[0] = (uint32_t) "\0";
@@ -52,6 +51,7 @@ void dot(void) {
     itoa (input_intgr, pr_strn);
     len_pr_strn = strlen(pr_strn);
     io_write(io, (uint8_t *)pr_strn, len_pr_strn);
+    _spc(); // print formatting/spacing
 }
 
 /* discard top of stack */
