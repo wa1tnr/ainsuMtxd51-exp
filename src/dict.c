@@ -15,6 +15,7 @@
 #include "warm.h"
 #include "dump.h"
 
+int linelen = LLENGTH; // = 28
 // previous:
 // Mon Aug 27 03:53:51 UTC 2018
 
@@ -83,8 +84,11 @@ int locate(void) {
 
 /* Display all words in dictionary */
 void words(void) { // 28 Aug 20:05 UTC
+    int count_ln = 0; // count of line's length
     for (int i = entries - 1; i >= 0; i--) {
         strcpy(namebuf, dictionary[i].name);
+        count_ln = count_ln + strlen(namebuf) + 1 ; // how long this line is, so far
         io_write(io, (uint8_t *)namebuf, strlen(namebuf));
+        _spc();
     }
 }
