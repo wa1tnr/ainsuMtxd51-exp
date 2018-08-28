@@ -52,8 +52,10 @@ void words(void); // forward declaration // 28 Aug 22:35 UTC
 /* table of names and function addresses in flash */
 // extern const entry dictionary[];
 const entry dictionary[] = {
-    { _plus,      plus   },
-    { _nop,       nop    },
+
+    { _nop,       nop    }, // just switched these 28 Aug 22:49 UTC
+    { _plus,      plus   }, // just switched these 28 Aug 22:49 UTC
+                            // On branch xKM_converser_d51-kk-
     { _cr_n,      cr     },
     { _dott,      dott   },
     { _drop,      drop   },
