@@ -76,6 +76,7 @@ uint8_t *buf;
 
 void _que(void) {
     io_write(io, (uint8_t *) "? ",         1);
+    _spc();
 }
 
 void _ok(void) {
@@ -207,11 +208,14 @@ void USART_0_example_lower(void) {
     bg_blue();
     fg_white();
     bg_red();
-    io_write(io, (uint8_t *)  "  Hello World!  ",  16);
+    io_write(io, (uint8_t *)  "  ainsuForth MTX  ",  18);
+    //     12345678901234567890123456789012345678901234567890
     color_reset();
 
     bg_black();
-    io_write(io, (uint8_t *)"    type something: ",  20);
+ // io_write(io, (uint8_t *)"    type 'words': \r\n\r\n",  24);
+    io_write(io, (uint8_t *)"                  \r\n\r\n",  22);
+    //             12345678901234567890123456789012345678901234567890
     bg_black();
 
     fg_yellow(); // color it!
