@@ -14,9 +14,8 @@
 #include "stack_ops.h"
 #include "debugging.h"
 
-
-#define timeStamp(t,l)   "Tue Aug 28 03:26:52 UTC 2018\r\n\r\n", 32
-#define branchStamp(b,l) "KM_converser_d51         ", 25
+#define timeStamp(t,l)   "Tue Aug 28 03:33:46 UTC 2018\r\n\r\n", 32
+#define branchStamp(b,l) "On branch master         ", 25
 
 struct io_descriptor *io;
 
