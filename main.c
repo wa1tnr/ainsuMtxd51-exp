@@ -49,7 +49,7 @@ int main(void)
     uint8_t* rram = 0;
     int q = 0;
 
-//  this 'xec' is now  defaulted to disabled, by a commit       done this evening.
+//  this 'xec' is now defaulted to disabled, by a commit done this evening.
 
 //  int xec = -1; // true  - yes, do exec
     int xec =  0; // false - no,  do not exec
