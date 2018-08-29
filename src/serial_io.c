@@ -1,4 +1,4 @@
-// Wed Aug 29 00:33:30 UTC 2018
+// Wed Aug 29 01:25:16 UTC 2018
 // On branch xKM_converser_d51-kk-
 
 /* wa1tnr - August, 2018 LGPL v2.1 */
@@ -17,15 +17,16 @@
 
 
 
-#define timeStamp(t,l)   "Wed Aug 29 01:17:54 UTC 2018\r\n\r\n", 32
+#define timeStamp(t,l)   "Wed Aug 29 01:25:16 UTC 2018\r\n\r\n", 32
 /*
 #define branchStamp(b,l) "xKM_converser_d51-nn-    ", 25
 */
-/*
-#define branchStamp(b,l) "KM_converser_d51         ", 25
-*/
 
+#define branchStamp(b,l) "KM_converser_d51         ", 25
+
+/*
 #define branchStamp(b,l) "master                   ", 25
+*/
 
 struct io_descriptor *io;
 
