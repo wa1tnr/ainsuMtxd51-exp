@@ -1,10 +1,12 @@
 # ainsuMtxd51
 
-Working primitive command interpreter (type '911' for help).
+Working small, Forth-like interpreter (type 'words' for help).
 
     On branch KM_converser_d51
 
 For SAMD51 (here) and SAMD21 (elsewhere; similarly-named repository)
+
+Most recent work is here.  SAMD21 repository is lagging behind quite a bit.
 
 Lineage:
 
@@ -14,4 +16,4 @@ Lineage:
 # ainsuMtxd21
   * more recent work on the command processor/interpreter loop code
 
-Fri Aug 24 20:33:59 UTC 2018
+Wed Aug 29 00:40:49 UTC 2018
