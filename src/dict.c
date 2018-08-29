@@ -42,9 +42,12 @@ void help(void) {
     io_write(io, (uint8_t *) "    type 'words' instead of 'help'.\r\n", 37);
 }
 
-void dump(void) { // 28 Aug 19:39 UTC
-    adrs_ram = cdump();
-    push((uint32_t)adrs_ram); // address of the most recent line dumped
+void dump(void) { // ( adrs lines --  )
+    int popped = pop();
+    for (int i= popped; i > 0; i--) {
+        adrs_ram = cdump();
+        push(((uint32_t)adrs_ram) + 16); // address of the most recent line dumped
+    }
 }
 
 void words(void); // forward declaration // 28 Aug 22:35 UTC
