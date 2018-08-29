@@ -14,6 +14,7 @@
 #include "flashDict.h"
 #include "warm.h"
 #include "dump.h"
+#include "ascii_art.h"
 
 int linelen = LLENGTH; // = 28
 // previous:
@@ -23,6 +24,12 @@ int linelen = LLENGTH; // = 28
 char namebuf[maxtib];
 
 uint8_t* adrs_ram = 0;
+
+/* demo ascii art */
+NAMED(_aart, "aart");
+void aart(void) {
+    forth_ascii();
+}
 
 /* destructively display top of stack, decimal */
 NAMED(_dott, ".");
@@ -75,6 +82,7 @@ const entry dictionary[] = {
     { _dump,      dump   },
     { _words,     words  },
     { _help,      help   },
+    { _aart,      aart   },
     { _warm_,     _warm  },
     { _nop,       nop    }, // just switched these 28 Aug 23:10 UTC
 };
