@@ -15,9 +15,11 @@
 #include "debugging.h"
 #include "dict_common.h"
 
-#define timeStamp(t,l)   "Wed Aug 29 00:33:30 UTC 2018\r\n\r\n", 32
+
+
+#define timeStamp(t,l)   "Wed Aug 29 01:17:54 UTC 2018\r\n\r\n", 32
 /*
-#define branchStamp(b,l) "xKM_converser_d51-kk-    ", 25
+#define branchStamp(b,l) "xKM_converser_d51-nn-    ", 25
 */
 /*
 #define branchStamp(b,l) "KM_converser_d51         ", 25

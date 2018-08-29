@@ -1,5 +1,5 @@
-// Tue Aug 28 19:29:30 UTC 2018
-// On branch xKM_converser_d51-kk-
+// Wed Aug 29 01:17:54 UTC 2018
+// On branch xKM_converser_d51-nn-
 
 #include <atmel_start.h>
 #include "serial_io.h"
@@ -12,6 +12,7 @@
 #include "stack_ops.h"
 
 // previous:
+// Tue Aug 28 19:29:30 UTC 2018 // On branch xKM_converser_d51-kk-
 // Tue Aug 21 21:23:47 UTC 2018 // KM_converser_aa-
 
 void delays(void) { // delay some
