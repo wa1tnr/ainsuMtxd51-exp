@@ -51,13 +51,27 @@ uint8_t reading(void) {
         return 1;
     }
     if (ch_read == '\r') return 0; // return 0: move onto the next word
-    if (ch_read == ' ')  return 0;
+
+/*
     if (ch_read == '\010') { // backspace
+*/
+
+    if (ch_read == ' ')  return 0;
+    if ((ch_read == '\010')||(ch_read == '\177')) { // backspace
         if (pos == 0) throw_();
         tib[pos--] = 0;
         tib[pos] = 0;
+
+        if (ch_read == '\177') {
+            io_write(io, (uint8_t *) "\010", 1);
+        }
+
+
         _spc();
         io_write(io, (uint8_t *) "\010", 1);
+
+
+
         return 1; // return 1: make the 'while (reading())' last a while longer!
     }
     if (pos < maxtib) {
@@ -72,3 +86,16 @@ void readword(void) {
     tib[0] = 0;
     while (reading());
 }
+
+/*
+
+ $ diff readword.c readword.c__newer 
+55c55
+<     if (ch_read == '\010') { // backspace
+---
+>     if ((ch_read == '\010')|(ch_read == '\177')) { // backspace
+ $ 
+
+*/
+
+
