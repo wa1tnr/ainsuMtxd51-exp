@@ -47,7 +47,11 @@ int main(void)
     // rram, q, i
     uint8_t* rram = 0;
     int q = 0;
-    int xec = -1; // true - yes, do exec
+
+//  this 'xec' will be defaulted to disabled, by a commit to be done today.
+
+    int xec = -1; // true  - yes, do exec
+//  int xec =  0; // false - no,  do not exec
 
     /* Initializes MCU, drivers and middleware */
     atmel_start_init();
@@ -68,11 +72,19 @@ int main(void)
     // That's 0x800 lines of 16 bytes each
 
     // 0x40000 size of internal flashROM (256 kb)
+
+#define OFFSET 8304 // 8304  $2070
+
     if (xec != 0) {
-     // 46 seconds
-     // for (int jk = 0x800; jk > 0; jk--) {
+        push(OFFSET);
+
+        // 46 seconds
+        // for (int jk = 0x800; jk > 0; jk--) {
+
+
         for (int jk =   0x7; jk > 0; jk--) { // 7 lines
             rram = cdump(); // dump.c
+            push(((uint32_t)rram) + 16); // address of the most recent line dumped
         }
 
         q = (int)rram;
