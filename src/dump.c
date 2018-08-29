@@ -27,7 +27,6 @@
 // #define LBOUND 0x1f70+0x100 // Adafruit
 #define LBOUND 0x1e70+0x100 // add 0x100 through the stack mechanism, later
 
-
 /* see main.c for how many lines of memory to dump.
    It may be a very large number!
 
@@ -88,9 +87,10 @@ int COUNTER = 0;
 uint8_t* cdump(void) {
     char buffer[5] = "";
     char *ram;
-    int adptr = LBOUND+COUNTER ;
-    push(0x100); // can put in any value, it's an offset to see a specific segment of SRAM
-    adptr = adptr + pop();
+    // int adptr = LBOUND+COUNTER ;
+    int adptr = pop(); // LBOUND+COUNTER ;
+    // push(0x100); // can put in any value, it's an offset to see a specific segment of SRAM
+    // adptr = adptr + pop();
     ram = (char*)adptr;
 
     io_write(io, (uint8_t *)"\015\012", 2); // CRLF
