@@ -54,6 +54,12 @@ void dot(void) {
     _spc(); // print formatting/spacing
 }
 
+/* copy TOS to TOS-1 */
+void dup(void) {
+    int n = pop();
+    push(n); push(n);
+}
+
 /* discard top of stack */
 void drop(void) {
     pop();
