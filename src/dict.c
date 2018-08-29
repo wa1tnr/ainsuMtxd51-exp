@@ -39,7 +39,8 @@ NAMED(_nopp, "nop");  // swapped _name with _nop
 void nopp(void) { }
 
 void help(void) {
-    io_write(io, (uint8_t *) "    type 'words' instead of 'help'.\r\n", 37);
+    io_write(io, (uint8_t *) "    type 'words' instead of 'help'.\r\n\r\n", 39);
+    io_write(io, (uint8_t *) "    8304 16 dump         \r\n", 27);
 }
 
 void dump(void) { // ( adrs lines --  )
