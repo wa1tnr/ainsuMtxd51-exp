@@ -86,6 +86,7 @@ src/itoa.o \
 src/dict.o \
 src/runword.o \
 src/math.o \
+src/ascii_art.o \
 main.o
 
 OBJS_AS_ARGS +=  \
@@ -128,6 +129,7 @@ OBJS_AS_ARGS +=  \
 "src/dict.o" \
 "src/runword.o" \
 "src/math.o" \
+"src/ascii_art.o" \
 "main.o"
 
 # List the dependency files
@@ -173,6 +175,7 @@ DEPS_AS_ARGS +=  \
 "src/dict.d" \
 "src/runword.d" \
 "src/math.d" \
+"src/ascii_art.d" \
 "main.d"
 
 OUTPUT_FILE_NAME :=AtmelStart
