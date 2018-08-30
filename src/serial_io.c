@@ -20,13 +20,13 @@
 
 #define timeStamp(t,l)   "Thu Aug 30 01:58:29 UTC 2018\r\n\r\n", 32
 
-
-#define branchStamp(b,l) "xKM_converser_d51-pp-    ", 25
-
-
 /*
-#define branchStamp(b,l) "KM_converser_d51         ", 25
+#define branchStamp(b,l) "xKM_converser_d51-pp-    ", 25
 */
+
+
+#define branchStamp(b,l) "KM_converser_d51         ", 25
+
 
 /*
 #define branchStamp(b,l) "master                   ", 25
