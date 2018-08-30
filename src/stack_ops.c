@@ -108,6 +108,7 @@ void dotsRp(void) { // dotsR, primitive
     u_dotsR();
 }
 
+/* bottom of the stack dot */
 void bosDot(void) {
     uBackDotBack();
 }
