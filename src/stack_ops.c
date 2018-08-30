@@ -1,3 +1,6 @@
+// Thu Aug 30 20:51:14 UTC 2018
+// On branch xKM_converser_d51-pp-
+
 /* stack_ops.c */
 
 /* from Shattuck's Tiny interpreter,
@@ -90,25 +93,48 @@ void swap(void) {
 }
 
 /* copy second on stack to top */
-// NAMED(_over, "over");
 void over(void) {
     int a;
     int b;
     a = pop();
-     b = pop();
-     push(b);
-     push(a);
-     push(b);
+    b = pop();
+    push(b);
+    push(a);
+    push(b);
+}
+
+/* reverse display the whole stack, decimal */
+void dotsRp(void) { // dotsR, primitive
+    u_dotsR();
+}
+
+void bosDot(void) {
+    uBackDotBack();
 }
 
 /* display whole stack, decimal */
-// NAMED(_dotS, ".s");
-void dotS(void) {
+void dotsC(void) {
     for (int i = 0; i < STKSIZE; i++) dot();
 }
 
+void dotsR(void) { // .sr  (newly available to the interpreter)
+    dotsC();
+    // dotsRp();
+}
+
+void dotS(void) { // .s  (in the interpreter)
+    // dotsC();
+    dotsRp();
+}
 
 /*
+
+  30 August 2018:
+
+  THIS IS NOW OUTDATED.  SEE EARLIER CODE for correct context.
+
+  Specifically, dotS() itself was changed, so the context (in
+  which the below was writen) is now wrong.
 
   1. move the code here to stack_ops.c - or to a good
      place for that code, if it's not stack related.

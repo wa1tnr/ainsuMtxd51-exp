@@ -1,3 +1,7 @@
+// Thu Aug 30 20:51:14 UTC 2018
+// On branch xKM_converser_d51-pp-
+
+// previous:
 // Tue Aug 28 23:24:03 UTC 2018
 // On branch xKM_converser_d51-kk-
 
@@ -8,7 +12,6 @@
 #include "common.h"
 #include "getKey.h"
 #include "serial_io.h"
-
 #include "stack_ops.h"
 #include "math.h"
 #include "flashDict.h"
@@ -16,9 +19,9 @@
 #include "dump.h"
 #include "ascii_art.h"
 
+#include "fmacros.h" // forth macros
+
 int linelen = LLENGTH; // = 28
-// previous:
-// Mon Aug 27 03:53:51 UTC 2018
 
 /* buffer required for strings read from flash */
 char namebuf[maxtib];
@@ -33,13 +36,12 @@ void aart(void) {
 
 /* destructively display top of stack, decimal */
 NAMED(_dott, ".");
-void dott(void) { // earlier dot() word bypassed temporarily
-    dot(); // io_write(io, (uint8_t *)" ~dot~", 7);
+void dott(void) {
+    dot();
 }
 
 // const char x[]=y
 const char _nop[2]=" \0";
-// NAMED(_nop, " "); // swapped _name with _nopp
 void nop(void) { }
 
 NAMED(_nopp, "nop");  // swapped _name with _nop
@@ -78,12 +80,14 @@ const entry dictionary[] = {
     { _swap,      swap   },
     { _over,      over   },
     { _dotS,      dotS   },
+    { _dotsR,     dotsR  },
     { _multiply,  multiply },
     { _subtract,  subtract },
     { _add,       add    },
     { _dump,      dump   },
     { _words,     words  },
     { _help,      help   },
+    { _bosDot,    bosDot },
     { _aart,      aart   },
     { _warm_,     _warm  },
     { _nop,       nop    }, // just switched these 28 Aug 23:10 UTC
