@@ -12,6 +12,7 @@ NAMED(_swap,    "swap");
 NAMED(_over,    "over");
 NAMED(_dotsR,    ".sr");
 NAMED(_bosDot,    "b.");
+NAMED(_rstack, "rstack");
 NAMED(_dotS,      ".s");
 NAMED(_plus,    "plus");
 NAMED(_add,        "+");
