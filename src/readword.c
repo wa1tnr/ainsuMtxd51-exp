@@ -1,3 +1,6 @@
+// Thu Aug 30 03:59:24 UTC 2018
+// On branch xKM_converser_d51-pp-
+
 #include "common.h"
 #include "getKey.h"
 // #include "driver_examples.h"
@@ -51,27 +54,16 @@ uint8_t reading(void) {
         return 1;
     }
     if (ch_read == '\r') return 0; // return 0: move onto the next word
-
-/*
-    if (ch_read == '\010') { // backspace
-*/
-
     if (ch_read == ' ')  return 0;
-    if ((ch_read == '\010')||(ch_read == '\177')) { // backspace
-        if (pos == 0) throw_();
-        tib[pos--] = 0;
-        tib[pos] = 0;
-
+    if ((ch_read == '\010')||(ch_read == '\177')) { // backspace or rubout
         if (ch_read == '\177') {
             io_write(io, (uint8_t *) "\010", 1);
         }
-
-
         _spc();
         io_write(io, (uint8_t *) "\010", 1);
-
-
-
+        if (pos == 0) { return 1; } // throw_(); //  SOLVED
+        tib[pos--] = 0;
+        tib[pos] = 0;
         return 1; // return 1: make the 'while (reading())' last a while longer!
     }
     if (pos < maxtib) {
