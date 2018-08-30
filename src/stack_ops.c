@@ -65,14 +65,21 @@ void drop(void) {
     pop();
 }
 
+/* obliterate drop - remove trace of TOS */
+void oblit(void) {
+    pop();
+    push(0); // any value to oblit is fine
+    back();
+    pop();
+    pop();
+}
+
 /* recover dropped stack item */
-// NAMED(_back, "back");
 void back(void) {
     for (int i = 1; i < STKSIZE; i++) drop();
 }
 
 /* exchange top two stack items */
-// NAMED(_swap, "swap");
 void swap(void) {
     int a;
     int b;
@@ -80,6 +87,18 @@ void swap(void) {
     b = pop();
     push(a);
     push(b);
+}
+
+/* copy second on stack to top */
+// NAMED(_over, "over");
+void over(void) {
+    int a;
+    int b;
+    a = pop();
+     b = pop();
+     push(b);
+     push(a);
+     push(b);
 }
 
 /* display whole stack, decimal */
