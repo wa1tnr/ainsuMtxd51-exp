@@ -128,6 +128,10 @@ void dotS(void) { // .s  (in the interpreter)
     dotsRp();
 }
 
+void rstack(void) {
+    rev_coll_stack();
+}
+
 /*
 
   30 August 2018:
