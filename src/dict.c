@@ -88,6 +88,7 @@ const entry dictionary[] = {
     { _words,     words  },
     { _help,      help   },
     { _bosDot,    bosDot },
+    { _rstack,    rstack },
     { _aart,      aart   },
     { _warm_,     _warm  },
     { _nop,       nop    }, // just switched these 28 Aug 23:10 UTC
