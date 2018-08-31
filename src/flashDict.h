@@ -14,6 +14,7 @@ NAMED(_over,    "over");
 NAMED(_dotsR,    ".sr");
 NAMED(_bosDot,    "b.");
 NAMED(_rstack, "rstack");
+NAMED(_prog_a, "prog_a");
 NAMED(_dotS,      ".s");
 NAMED(_plus,    "plus");
 NAMED(_add,        "+");
