@@ -23,6 +23,7 @@
 #include "ascii_art.h"
 #include "emit.h"
 #include "fmacros.h" // forth macros
+#include "programs.h"
 
 int linelen = LLENGTH; // = 28
 
@@ -92,6 +93,7 @@ const entry dictionary[] = {
     { _words,     words  },
     { _help,      help   },
     { _bosDot,    bosDot },
+    { _prog_a,    prog_a },
     { _rstack,    rstack },
     { _aart,      aart   },
     { _warm_,     _warm  },
