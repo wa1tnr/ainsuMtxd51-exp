@@ -53,7 +53,8 @@ void nopp(void) { }
 
 void help(void) {
     io_write(io, (uint8_t *) "    type 'words' instead of 'help'.\r\n\r\n", 39);
-    io_write(io, (uint8_t *) "    8304 16 dump         \r\n", 27);
+    io_write(io, (uint8_t *) "    8304 16 dump              \r\n\r\n", 34);
+    io_write(io, (uint8_t *) "    1 2 3 4 5 6 7 64  prog_a    \r\n", 34);
 }
 
 void dump(void) { // ( adrs lines --  )
