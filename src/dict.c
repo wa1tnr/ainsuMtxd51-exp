@@ -1,11 +1,14 @@
+// Fri Aug 31 01:48:14 UTC 2018
+// On branch xKM_converser_d51-pp-
+
+/* dict.c */
+
+// previous:
 // Thu Aug 30 20:51:14 UTC 2018
 // On branch xKM_converser_d51-pp-
 
-// previous:
 // Tue Aug 28 23:24:03 UTC 2018
 // On branch xKM_converser_d51-kk-
-
-/* dict.c */
 
 #include "dict.h"
 #include <string.h>
@@ -71,6 +74,7 @@ void words(void); // forward declaration // 28 Aug 22:35 UTC
 const entry dictionary[] = {
     { _nopp,      nopp   }, // just switched these 28 Aug 23:10 UTC
     { _plus,      plus   },
+    { _emit,      emit   },
     { _cr_n,      cr     },
     { _dott,      dott   },
     { _dup,       dup    },
