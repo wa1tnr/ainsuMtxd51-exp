@@ -1,10 +1,11 @@
-// Thu Aug 30 21:08:43 UTC 2018
+// Fri Aug 31 02:48:02 UTC 2018
 // On branch xKM_converser_d51-pp-
 
 /* flashDict.h */
 
 #include "dict_common.h"
 NAMED(_drop,    "drop");
+NAMED(_emit,    "emit");
 NAMED(_oblit,  "oblit");
 NAMED(_dup,      "dup");
 NAMED(_back,    "back");
