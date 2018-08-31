@@ -1,13 +1,13 @@
-// Fri Aug 31 04:04:41 UTC 2018
-// On branch xKM_converser_d51-pp-
+// Fri Aug 31 20:28:04 UTC 2018
+// On branch zKM_converser_d51-aa-
 
 /* wa1tnr - August, 2018 LGPL v2.1 */
 
+// Fri Aug 31 04:04:41 UTC 2018
+// On branch xKM_converser_d51-pp-
 // Fri Aug 31 02:48:02 UTC 2018
-// Thu Aug 30 23:54:19 UTC 2018
 // Thu Aug 30 04:17:15 UTC 2018
 // On branch xKM_converser_d51-pp-
-
 // Wed Aug 29 05:03:11 UTC 2018
 // On branch xKM_converser_d51-nn-
 
@@ -23,15 +23,16 @@
 #include "debugging.h"
 #include "dict_common.h"
 
-#define timeStamp(t,l)   "Fri Aug 31 04:04:41 UTC 2018\r\n\r\n", 32
-
-/*
-#define branchStamp(b,l) "xKM_converser_d51-pp-    ", 25
-*/
+#define timeStamp(t,l) \
+  "Fri Aug 31 20:28:04 UTC 2018\r\n\r\n", 32
 
 // current target branch:
-#define branchStamp(b,l) "KM_converser_d51         ", 25
+#define branchStamp(b,l) \
+  "zKM_converser_d51-aa-    ", 25
 
+/*
+#define branchStamp(b,l) "KM_converser_d51         ", 25
+*/
 
 /*
 #define branchStamp(b,l) "master                   ", 25
