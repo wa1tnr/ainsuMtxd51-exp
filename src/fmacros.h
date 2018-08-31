@@ -154,4 +154,9 @@
 
 */
 
+#define uback back();
+
+#define backfour() \
+    uback uback uback uback
+
 /* end fmacros.h */
