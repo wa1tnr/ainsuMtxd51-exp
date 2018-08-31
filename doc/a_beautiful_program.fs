@@ -1,25 +1,36 @@
-\ nice working program - with responses included
+\ nice working program - without responses
 
-   1 2 3 4   5 6 7  64           rstack     back     .s 7 6 5 4 3 2 1 64   ok
-                swap               plus     emit A   .s 65 1 7 6 5 4 3 2  ok
-   back back    swap               plus     emit B   .s 66 65 7 6 5 4 3 2  ok
+  1 2 3 4   5 6 7  64        rstack back  .s
+               swap          plus   emit  .s
+  back back    swap          plus   emit  .s
 
-   back back    swap drop          plus     emit C   .s 67 65 66 7 6 5 4 3  ok
-   back back    swap drop          plus     emit D   .s 68 65 67 66 7 6 5 4  ok
-   back back    swap drop          plus     emit E   .s 69 65 68 67 66 7 6 5  ok
-   back back    swap drop          plus     emit F   .s 70 65 69 68 67 66 7 6  ok
+  back back    swap drop     plus   emit  .s
+  back back    swap drop     plus   emit  .s
+  back back    swap drop     plus   emit  .s
+  back back    swap drop     plus   emit  .s
 
-   back back    swap drop          plus     emit G   .s 71 65 70 69 68 67 66 7  ok
+  back back    swap drop     plus   emit  .s
 
-   drop back    back back                            .s 70 69 68 67 66 7 71 65  ok
-   swap drop    swap drop                            .s 7 71 70 69 68 67 66 65  ok
+  drop back    back back                  .s
+  swap drop    swap drop                  .s
 
-   emit A   emit B   emit C   emit D   cr 
-   emit E   emit F   emit G   drop                   .s 7 71 70 69 68 67 66 65   cr 
+  emit A   emit B   emit C   emit D   cr 
+  emit E   emit F   emit G   drop         .s
 
-   emit A   emit B   emit C   emit D   cr 
-   emit E   emit F   emit G   drop                   .s 7 71 70 69 68 67 66 65   cr 
+  emit A   emit B   emit C   emit D   cr 
+  emit E   emit F   emit G   drop         .s
 
-   emit A   emit B   emit C   emit D   cr 
-   emit E   emit F   emit G   drop     cr 
+  emit A   emit B   emit C   emit D   cr 
+  emit E   emit F   emit G   drop
 
+\ loads the stack with ints 1-7
+\ and a seed (offset) value for ASCII (65 - 1 = 64)
+\ 65 is ascii 'A'  (66 is 'B' and so on)
+
+\ prints them in sequence
+\ reuses them when it gets to the end
+
+\ wastes possibly the least amount of stack space
+\ possible, given the initial 'additive' method
+\ to populate the stack with a sequence of ASCII
+\ characters.
