@@ -212,10 +212,10 @@ void USART_0_example_lower(void) {
     // prep for merge into master, 25 Aug 20:58 UTC:
     // "On branch master         ", 25); // reflect that this is really branch master
 
-
+/*
     io_write(io, (uint8_t *)
         "SMUDGE BIT SET   ", 17); // SMUDGE (means nothing other than 'this is different'
-
+*/
 
     io_write(io, (uint8_t *) timeStamp(t,l));
 
