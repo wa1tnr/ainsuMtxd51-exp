@@ -12,12 +12,14 @@
    back back    swap drop          plus     emit G   .s 71 65 70 69 68 67 66 7  ok
 
    drop back    back back                            .s 70 69 68 67 66 7 71 65  ok
-   swap drop                                         .s 71 70 69 68 67 66 7 65  ok
-   swap drop                                         .s 7 71 70 69 68 67 66 65  ok
+   swap drop    swap drop                            .s 7 71 70 69 68 67 66 65  ok
 
-   emit A   emit B  emit C  emit D  cr 
-   emit E   emit F  emit G  drop          .s 7 71 70 69 68 67 66 65  cr 
+   emit A   emit B   emit C   emit D   cr 
+   emit E   emit F   emit G   drop                   .s 7 71 70 69 68 67 66 65   cr 
 
-   emit A   emit B  emit C  emit D  cr 
-   emit E   emit F  emit G  drop          .s 7 71 70 69 68 67 66 65  ok
+   emit A   emit B   emit C   emit D   cr 
+   emit E   emit F   emit G   drop                   .s 7 71 70 69 68 67 66 65   cr 
+
+   emit A   emit B   emit C   emit D   cr 
+   emit E   emit F   emit G   drop     cr 
 
