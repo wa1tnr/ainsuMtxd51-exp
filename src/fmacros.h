@@ -54,3 +54,28 @@
     swap();         \
     bk_bk_dr();     \
     swap();
+
+
+/* from: dump.c
+
+ 40 void new_ascii_emit(void) {
+ 44     rbyte = rbyte + 0x30; // normalize (in ASCII) for 0-9
+ 56     io_write(io, (uint8_t *) char_r, 1);
+ 57 }
+*/
+
+/* u_emit - cpp macro for emit() */
+// ( n -- )
+
+#define u_emit() \
+    uint32_t  rbyte = 0; \
+    int       char_r   =  '0'; \
+    char      *cbyte; \
+    rbyte = pop(); \
+    cbyte = (char*) &rbyte; \
+    int df = (uint32_t) cbyte; \
+    char *dfbyte = (char*) df; \
+    char_r = (int)dfbyte; \
+    io_write(io, (uint8_t *) char_r, 1);
+
+/* end fmacros.h */
