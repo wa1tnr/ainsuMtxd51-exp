@@ -18,7 +18,7 @@
 #include "warm.h"
 #include "dump.h"
 #include "ascii_art.h"
-
+#include "emit.h"
 #include "fmacros.h" // forth macros
 
 int linelen = LLENGTH; // = 28
