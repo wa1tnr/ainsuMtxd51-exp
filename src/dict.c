@@ -52,10 +52,18 @@ NAMED(_nopp, "nop");  // swapped _name with _nop
 void nopp(void) { }
 
 void help(void) {
-    io_write(io, (uint8_t *) "    type 'words' instead of 'help'.\r\n\r\n", 39);
-    io_write(io, (uint8_t *) "    8304 16 dump              \r\n\r\n", 34);
-    io_write(io, (uint8_t *) "    1 2 3 4 5 6 7 64  prog_a    \r\n", 34);
+    io_write(io, (uint8_t *) "    type 'words' instead of 'help'.\r\n\r\n",   39);
+    io_write(io, (uint8_t *) "    8304 16 dump              \r\n\r\n",        34);
+    io_write(io, (uint8_t *) "    1 2 3 4 5 6 7 64  prog_a    \r\n\r\n",      36);
+
+    io_write(io, (uint8_t *) "    sram starts at        0x20000000\r\n",      38);
+    io_write(io, (uint8_t *) "                           536870912  decimal.\r\n", 48);
 }
+    // 123456789012345678901234567890123456789012345678901234567890
+/*
+     sram starts at        0x20000000  seven zero's or twenty million
+                            536870912  decimal.
+*/
 
 void dump(void) { // ( adrs lines --  )
     int popped = pop();
