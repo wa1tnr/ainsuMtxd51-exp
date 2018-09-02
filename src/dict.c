@@ -58,8 +58,10 @@ void help(void) {
 
     io_write(io, (uint8_t *) "    sram starts at        0x20000000\r\n",      38);
     io_write(io, (uint8_t *) "                           536870912  decimal.\r\n", 48);
+    io_write(io, (uint8_t *) "    536870912  12288  dump ",                   27);
+    io_write(io, (uint8_t *) "    will dump all of sram \r\n",                28);
 }
-    // 123456789012345678901234567890123456789012345678901234567890
+                           // 123456789012345678901234567890123456789012345678901234567890
 /*
      sram starts at        0x20000000  seven zero's or twenty million
                             536870912  decimal.
